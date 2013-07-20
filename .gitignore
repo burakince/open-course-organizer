@@ -3,5 +3,6 @@
 .project
 *.original
 /.settings
+/.gwt
 /target
 /src/main/webapp/WEB-INF/lib/gwt-servlet.jar
