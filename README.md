@@ -1,4 +1,4 @@
-open-course-organizer
+Open Course Organizer
 =====================
 
-Course Organizer for Summer Camp
+Course Organizer for Summer Camp.
