@@ -1,0 +1,7 @@
+.*~
+.classpath
+.project
+*.original
+/.settings
+/target
+/src/main/webapp/WEB-INF/lib/gwt-servlet.jar
