@@ -63,6 +63,11 @@
       <classifier>sources</classifier>
       <scope>test</scope>
     </dependency>
+    <dependency>
+	  <groupId>com.mattbertolini</groupId>
+	  <artifactId>hermes</artifactId>
+	  <version>1.2.0</version>
+    </dependency>
   </dependencies>
 
   <build>
