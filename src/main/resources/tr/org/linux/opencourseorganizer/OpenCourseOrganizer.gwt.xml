@@ -6,7 +6,7 @@
   <!-- We need the JUnit module in the main module,               -->
   <!-- otherwise eclipse complains (Google plugin bug?)           -->
   <!-- <inherits name='com.google.gwt.junit.JUnit' />             -->
-  <inherits name="com.google.gwt.i18n.I18N"/>
+  <inherits name="com.google.gwt.i18n.I18N" />
 
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->
@@ -20,12 +20,8 @@
   <!-- Specify the app entry point class.                         -->
   <entry-point class='tr.org.linux.opencourseorganizer.client.OpenCourseOrganizer' />
 
-  <!-- English language, independent of country                   -->
-  <extend-property name="locale" values="en"/>
-  <!-- Turkish language, independent of country                   -->
-  <extend-property name="locale" values="tr"/>
-  <!-- French language, independent of country                    -->
-  <extend-property name="locale" values="fr"/>
+  <!-- English, Turkish, French languages, independent of country -->
+  <extend-property name="locale" values="en, tr, fr" />
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client' />
