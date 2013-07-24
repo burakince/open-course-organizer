@@ -18,6 +18,11 @@
   <!-- Specify the app entry point class.                         -->
   <entry-point class='tr.org.linux.opencourseorganizer.client.OpenCourseOrganizer' />
 
+  <!-- Use ClientFactoryImpl by default -->
+  <replace-with class="tr.org.linux.opencourseorganizer.client.DesktopClientFactory">
+    <when-type-is class="tr.org.linux.opencourseorganizer.client.ClientFactory"/>
+  </replace-with>
+
   <!-- English, Turkish, French languages, independent of country -->
   <extend-property name="locale" values="en, tr, fr" />
 
