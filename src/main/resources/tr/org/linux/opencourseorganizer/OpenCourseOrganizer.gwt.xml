@@ -13,6 +13,7 @@
   <inherits name="com.google.gwt.i18n.I18N" />
   <inherits name='com.google.gwt.activity.Activity' />
   <inherits name='com.google.gwt.place.Place' />
+  <inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='tr.org.linux.opencourseorganizer.client.OpenCourseOrganizer' />
