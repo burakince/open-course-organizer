@@ -19,7 +19,28 @@
     </license>
   </licenses>
 
+  <developers>
+    <developer>
+      <id>burak.ince</id>
+      <name>Burak ince</name>
+      <email>burak.ince@linux.org.tr</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:burakince/open-course-organizer.git</connection>
+    <developerConnection>scm:git:git@github.com:burakince/open-course-organizer.git</developerConnection>
+    <url>https://github.com/burakince/open-course-organizer</url>
+  </scm>
+
+  <ciManagement>
+    <system>buildhive</system>
+    <url>https://buildhive.cloudbees.com/job/burakince/job/open-course-organizer/</url>
+  </ciManagement>
+
   <properties>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
     <gwtVersion>2.5.1</gwtVersion>
     <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -127,8 +148,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
     </plugins>
