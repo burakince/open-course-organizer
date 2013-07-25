@@ -23,8 +23,8 @@
     <when-type-is class="tr.org.linux.opencourseorganizer.client.ClientFactory"/>
   </replace-with>
 
-  <!-- English, Turkish, French languages, independent of country -->
-  <extend-property name="locale" values="en, tr, fr" />
+  <!-- English and Turkish languages, independent of country -->
+  <extend-property name="locale" values="en, tr" />
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client' />
