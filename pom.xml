@@ -120,6 +120,9 @@
           <i18nMessagesBundles>
             <i18nMessagesBundle>tr.org.linux.opencourseorganizer.client.Messages</i18nMessagesBundle>
           </i18nMessagesBundles>
+          <i18nConstantsBundles>
+            <i18nConstantsBundle>tr.org.linux.opencourseorganizer.client.Constants</i18nConstantsBundle>
+          </i18nConstantsBundles>
           <!-- <resourceBundles>
             <resourceBundle>tr.org.linux.opencourseorganizer.client.Messages</resourceBundle>
           </resourceBundles> -->
