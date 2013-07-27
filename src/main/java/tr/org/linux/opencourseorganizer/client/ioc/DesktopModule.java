@@ -1,6 +1,7 @@
 package tr.org.linux.opencourseorganizer.client.ioc;
 
 import tr.org.linux.opencourseorganizer.client.App;
+import tr.org.linux.opencourseorganizer.client.DesktopApp;
 
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Inject;
@@ -14,7 +15,7 @@ public class DesktopModule extends AbstractGinModule {
 
 	@Override
 	protected void configure() {
-		bind(App.class).in(Singleton.class);
+		bind(App.class).to(DesktopApp.class).in(Singleton.class);
 		bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
 		bind(PlaceController.class).toProvider(PlaceControllerProvider.class).in(Singleton.class);
 	}
@@ -32,6 +33,7 @@ public class DesktopModule extends AbstractGinModule {
 		public PlaceController get() {
 			return placeController;
 		}
+
 	}
 
 }
