@@ -1,4 +1,4 @@
-package tr.org.linux.opencourseorganizer.client;
+package tr.org.linux.opencourseorganizer.client.service;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;

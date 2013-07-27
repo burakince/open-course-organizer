@@ -1,5 +1,6 @@
 package tr.org.linux.opencourseorganizer.client;
 
+import tr.org.linux.opencourseorganizer.client.app.App;
 import tr.org.linux.opencourseorganizer.client.ioc.DesktopInjector;
 
 import com.google.gwt.core.shared.GWT;

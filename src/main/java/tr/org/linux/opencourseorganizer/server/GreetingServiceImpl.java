@@ -2,8 +2,8 @@ package tr.org.linux.opencourseorganizer.server;
 
 import java.io.IOException;
 
-import tr.org.linux.opencourseorganizer.client.GreetingService;
 import tr.org.linux.opencourseorganizer.client.Messages;
+import tr.org.linux.opencourseorganizer.client.service.GreetingService;
 import tr.org.linux.opencourseorganizer.shared.FieldVerifier;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;

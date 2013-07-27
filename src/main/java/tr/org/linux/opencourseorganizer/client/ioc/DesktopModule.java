@@ -1,7 +1,7 @@
 package tr.org.linux.opencourseorganizer.client.ioc;
 
-import tr.org.linux.opencourseorganizer.client.App;
-import tr.org.linux.opencourseorganizer.client.DesktopApp;
+import tr.org.linux.opencourseorganizer.client.app.App;
+import tr.org.linux.opencourseorganizer.client.app.DesktopApp;
 
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Inject;

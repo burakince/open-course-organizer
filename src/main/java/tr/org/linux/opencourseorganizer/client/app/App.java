@@ -1,4 +1,4 @@
-package tr.org.linux.opencourseorganizer.client;
+package tr.org.linux.opencourseorganizer.client.app;
 
 import com.google.gwt.user.client.ui.HasWidgets;
 

@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import tr.org.linux.opencourseorganizer.client.app.App;
+
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwtmockito.GwtMock;
 import com.google.gwtmockito.GwtMockitoTestRunner;
