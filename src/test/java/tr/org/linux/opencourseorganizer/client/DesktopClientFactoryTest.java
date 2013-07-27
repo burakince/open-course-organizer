@@ -4,7 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+import com.google.gwtmockito.GwtMockitoTestRunner;
+
+@RunWith(GwtMockitoTestRunner.class)
 public class DesktopClientFactoryTest {
 
 	private ClientFactory clientFactory;
@@ -22,6 +26,11 @@ public class DesktopClientFactoryTest {
 	@Test
 	public void clientFactoryEventBusShouldNotBeNull() throws Exception {
 		assertNotNull(clientFactory.getEventBus());
+	}
+
+	@Test
+	public void clientFactoryPlaceControllerShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getPlaceController());
 	}
 
 }
