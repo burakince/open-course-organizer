@@ -133,6 +133,7 @@
         <configuration>
           <runTarget>OpenCourseOrganizer.html</runTarget>
           <hostedWebapp>${webappDirectory}</hostedWebapp>
+          <module>tr.org.linux.opencourseorganizer.OpenCourseOrganizer</module>
           <i18nMessagesBundles>
             <i18nMessagesBundle>tr.org.linux.opencourseorganizer.client.Messages</i18nMessagesBundle>
           </i18nMessagesBundles>

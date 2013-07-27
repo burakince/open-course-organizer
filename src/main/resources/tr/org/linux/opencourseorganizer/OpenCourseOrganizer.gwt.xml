@@ -2,7 +2,6 @@
 <module rename-to='OpenCourseOrganizer'>
   <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User' />
-  <inherits name="com.google.gwt.inject.Inject" />
 
   <!-- <inherits name='com.google.gwt.junit.JUnit' />             -->
 
@@ -11,20 +10,68 @@
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark' />    -->
 
   <!-- Other module inherits                                      -->
+  <inherits name="com.google.gwt.inject.Inject" />
   <inherits name="com.google.gwt.i18n.I18N" />
   <inherits name='com.google.gwt.activity.Activity' />
   <inherits name='com.google.gwt.place.Place' />
-  <inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
+  <!-- <inherits name='com.google.web.bindery.requestfactory.RequestFactory' /> -->
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='tr.org.linux.opencourseorganizer.client.OpenCourseOrganizer' />
 
-  <!-- Use ClientFactoryImpl by default -->
+  <!-- Determine if we are in a mobile browser. -->
+  <define-property name="formfactor" values="desktop, tablet, mobile"/>
+  <collapse-property name="formfactor" values="*"/>
+
+  <property-provider name="formfactor">
+  <![CDATA[
+      var args = location.search;
+      var start = args.indexOf("formfactor");
+      if (start >= 0) {
+        var value = args.substring(start);
+        var begin = value.indexOf("=") + 1;
+        var end = value.indexOf("&");
+        if (end == -1) {
+          end = value.length;
+        }
+        return value.substring(begin, end);
+      }
+
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf("iphone") != -1 || ua.indexOf("ipod") != -1) {
+        return "mobile";
+      } else if (ua.indexOf("ipad") != -1) {
+        return "tablet";
+      } else if (ua.indexOf("android") != -1 || ua.indexOf("mobile") != -1) {
+        var dpi = 160;
+        var width = $wnd.screen.width / dpi;
+        var height = $wnd.screen.height / dpi;
+        var size = Math.sqrt(width*width + height*height);
+        return (size < 6) ? "mobile" : "tablet";
+      }
+      
+      return "desktop";
+  ]]>
+  </property-provider>
+
+  <!-- Use DesktopClientFactory by default                        -->
   <replace-with class="tr.org.linux.opencourseorganizer.client.DesktopClientFactory">
     <when-type-is class="tr.org.linux.opencourseorganizer.client.ClientFactory"/>
   </replace-with>
 
-  <!-- English and Turkish languages, independent of country -->
+  <!-- Use MobileClientFactory for mobile form factor.            -->
+  <replace-with class="tr.org.linux.opencourseorganizer.client.MobileClientFactory">
+    <when-type-is class="tr.org.linux.opencourseorganizer.client.ClientFactory"/>
+    <when-property-is name="formfactor" value="mobile"/>
+  </replace-with>
+
+  <!-- Use TabletClientFactory for mobile form factor.            -->
+  <replace-with class="tr.org.linux.opencourseorganizer.client.TabletClientFactory">
+    <when-type-is class="tr.org.linux.opencourseorganizer.client.ClientFactory"/>
+    <when-property-is name="formfactor" value="tablet"/>
+  </replace-with>
+
+  <!-- English and Turkish languages, independent of country      -->
   <extend-property name="locale" values="en, tr" />
 
   <!-- Specify the paths for translatable code                    -->
