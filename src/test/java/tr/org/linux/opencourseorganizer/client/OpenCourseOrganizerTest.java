@@ -22,19 +22,17 @@ public class OpenCourseOrganizerTest {
 	@Before
 	public void setUp() throws Exception {
 		openCourseOrganizer = new OpenCourseOrganizer();
+		when(clientFactory.getApp()).thenReturn(app);
+		openCourseOrganizer.onModuleLoad();
 	}
 
 	@Test
 	public void onModuleLoadShouldGetApp() throws Exception {
-		when(clientFactory.getApp()).thenReturn(app);
-		openCourseOrganizer.onModuleLoad();
 		verify(clientFactory).getApp();
 	}
 
 	@Test
 	public void appShouldRunWithRootLayoutPanel() throws Exception {
-		when(clientFactory.getApp()).thenReturn(app);
-		openCourseOrganizer.onModuleLoad();
 		verify(app).run(RootLayoutPanel.get());
 	}
 

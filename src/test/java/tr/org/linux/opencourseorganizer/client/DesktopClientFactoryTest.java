@@ -1,21 +1,29 @@
 package tr.org.linux.opencourseorganizer.client;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.google.gwt.core.shared.GWT;
+import com.google.gwt.place.shared.PlaceController;
+import com.google.gwtmockito.GwtMock;
 import com.google.gwtmockito.GwtMockitoTestRunner;
+import com.google.web.bindery.event.shared.EventBus;
 
 @RunWith(GwtMockitoTestRunner.class)
 public class DesktopClientFactoryTest {
+
+	@GwtMock App app;
+	@GwtMock EventBus eventBus;
+	@GwtMock PlaceController placeController;
 
 	private ClientFactory clientFactory;
 
 	@Before
 	public void setUp() throws Exception {
-		clientFactory = new DesktopClientFactory();
+		clientFactory = GWT.create(ClientFactory.class);
 	}
 
 	@Test
