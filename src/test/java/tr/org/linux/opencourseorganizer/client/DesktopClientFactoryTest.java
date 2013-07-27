@@ -19,4 +19,9 @@ public class DesktopClientFactoryTest {
 		assertNotNull(clientFactory.getApp());
 	}
 
+	@Test
+	public void clientFactoryEventBusShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getEventBus());
+	}
+
 }

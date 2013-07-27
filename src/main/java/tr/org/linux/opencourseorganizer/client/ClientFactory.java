@@ -1,7 +1,10 @@
 package tr.org.linux.opencourseorganizer.client;
 
+import com.google.web.bindery.event.shared.EventBus;
+
 public interface ClientFactory {
 
-	public App getApp();
+	App getApp();
+	EventBus getEventBus();
 
 }
