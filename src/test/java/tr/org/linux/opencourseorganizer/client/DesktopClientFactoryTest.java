@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import tr.org.linux.opencourseorganizer.client.app.App;
+import tr.org.linux.opencourseorganizer.client.application.App;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.place.shared.PlaceController;

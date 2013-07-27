@@ -1,6 +1,6 @@
 package tr.org.linux.opencourseorganizer.client;
 
-import tr.org.linux.opencourseorganizer.client.app.App;
+import tr.org.linux.opencourseorganizer.client.application.App;
 
 import com.google.gwt.inject.client.Ginjector;
 import com.google.gwt.place.shared.PlaceController;
