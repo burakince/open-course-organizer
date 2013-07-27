@@ -5,14 +5,17 @@ import com.google.web.bindery.event.shared.SimpleEventBus;
 
 public class DesktopClientFactory implements ClientFactory {
 
+	private App app = new App();
+	private SimpleEventBus eventBus = new SimpleEventBus();
+
 	@Override
 	public App getApp() {
-		return new App();
+		return app;
 	}
 
 	@Override
 	public EventBus getEventBus() {
-		return new SimpleEventBus();
+		return eventBus;
 	}
 
 }
