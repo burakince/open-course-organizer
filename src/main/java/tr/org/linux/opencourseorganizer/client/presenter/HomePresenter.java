@@ -1,16 +1,16 @@
 package tr.org.linux.opencourseorganizer.client.presenter;
 
-import tr.org.linux.opencourseorganizer.client.ui.Home;
-import tr.org.linux.opencourseorganizer.client.ui.Home.Presenter;
+import tr.org.linux.opencourseorganizer.client.ui.HomeView;
+import tr.org.linux.opencourseorganizer.client.ui.HomeView.Presenter;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 public class HomePresenter implements Presenter {
 
-	private Home view;
+	private HomeView view;
 
 	@Override
-	public void setView(Home view) {
+	public void setView(HomeView view) {
 		this.view = view;
 	}
 
