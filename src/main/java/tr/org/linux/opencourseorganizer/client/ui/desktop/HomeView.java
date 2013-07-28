@@ -7,8 +7,6 @@ public interface HomeView extends IsWidget {
 
 	public interface Presenter {
 
-		void setView(HomeView view);
-
 		void go(AcceptsOneWidget panel);
 
 	}

@@ -35,7 +35,6 @@ public class DesktopApp implements App {
 		this.placeHistoryMapper = placeHistoryMapper;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void run(HasWidgets.ForIsWidget parentView) {
 
@@ -60,9 +59,9 @@ public class DesktopApp implements App {
 		ActivityManager activityManager = new ActivityManager(activityMapper, eventBus);
 		activityManager.setDisplay(panel);
 
-		PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(placeHistoryMapper);
-		historyHandler.register(placeController, eventBus, defaultPlace);
-		historyHandler.handleCurrentHistory();
+		PlaceHistoryHandler placeHistoryHandler = new PlaceHistoryHandler(placeHistoryMapper);
+		placeHistoryHandler.register(placeController, eventBus, defaultPlace);
+		placeHistoryHandler.handleCurrentHistory();
 	}
 
 }

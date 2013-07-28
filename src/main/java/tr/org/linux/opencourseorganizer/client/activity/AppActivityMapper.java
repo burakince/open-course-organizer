@@ -20,7 +20,7 @@ public class AppActivityMapper implements ActivityMapper {
 	@Override
 	public Activity getActivity(Place place) {
 		if (place instanceof HomePlace)
-			return new HomeActivity(clientFactory, (HomePlace) place);
+			return new HomeActivity(clientFactory);
 		return null;
 	}
 
