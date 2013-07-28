@@ -23,6 +23,4 @@ public interface ClientFactory extends Ginjector {
 
 	HomeView.Presenter getHomePresenter();
 
-	HomeView getHomeView();
-
 }
