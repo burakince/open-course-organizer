@@ -1,29 +1,68 @@
 package tr.org.linux.opencourseorganizer.client.application;
 
+import tr.org.linux.opencourseorganizer.client.place.HomePlace;
+
+import com.google.gwt.activity.shared.ActivityManager;
+import com.google.gwt.activity.shared.ActivityMapper;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
+import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.event.shared.UmbrellaException;
+import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.place.shared.PlaceHistoryHandler;
+import com.google.gwt.place.shared.PlaceHistoryMapper;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.inject.Inject;
-import com.google.web.bindery.event.shared.EventBus;
 
 public class DesktopApp implements App {
 
-	@SuppressWarnings("unused")
+	private static Place defaultPlace = new HomePlace("home");
+
 	private final EventBus eventBus;
-	@SuppressWarnings("unused")
 	private final PlaceController placeController;
+	private final ActivityMapper activityMapper;
+	private final PlaceHistoryMapper placeHistoryMapper;
 
 	@Inject
-	public DesktopApp(EventBus eventBus, PlaceController placeController) {
+	public DesktopApp(EventBus eventBus, PlaceController placeController,
+			ActivityMapper activityMapper, PlaceHistoryMapper placeHistoryMapper) {
 		this.eventBus = eventBus;
 		this.placeController = placeController;
+		this.activityMapper = activityMapper;
+		this.placeHistoryMapper = placeHistoryMapper;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void run(HasWidgets.ForIsWidget parentView) {
-		// TODO Auto-generated method stub
-		Label lanel = new Label("Hello World!");
-		parentView.add(lanel);
+
+		GWT.setUncaughtExceptionHandler(new UncaughtExceptionHandler() {
+			@Override
+			public void onUncaughtException(Throwable e) {
+				while (e instanceof UmbrellaException) {
+					e = ((UmbrellaException) e).getCauses().iterator().next();
+				}
+
+				String message = e.getMessage();
+				if (message == null) {
+					message = e.toString();
+				}
+				Window.alert("An unexpected error occurred: " + message);
+			}
+		});
+
+		SimplePanel panel = new SimplePanel();
+		parentView.add(panel);
+
+		ActivityManager activityManager = new ActivityManager(activityMapper, eventBus);
+		activityManager.setDisplay(panel);
+
+		PlaceHistoryHandler historyHandler = new PlaceHistoryHandler(placeHistoryMapper);
+		historyHandler.register(placeController, eventBus, defaultPlace);
+		historyHandler.handleCurrentHistory();
 	}
 
 }
