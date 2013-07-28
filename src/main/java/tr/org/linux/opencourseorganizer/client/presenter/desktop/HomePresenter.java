@@ -1,7 +1,7 @@
-package tr.org.linux.opencourseorganizer.client.presenter;
+package tr.org.linux.opencourseorganizer.client.presenter.desktop;
 
-import tr.org.linux.opencourseorganizer.client.ui.HomeView;
-import tr.org.linux.opencourseorganizer.client.ui.HomeView.Presenter;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeView;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeView.Presenter;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 

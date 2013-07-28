@@ -1,4 +1,4 @@
-package tr.org.linux.opencourseorganizer.client.ui;
+package tr.org.linux.opencourseorganizer.client.ui.desktop;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
