@@ -43,7 +43,7 @@ public class DesktopModule extends AbstractGinModule {
 		private final PlaceController placeController;
 
 		@Inject
-		public PlaceControllerProvider(EventBus eventBus) {
+		public PlaceControllerProvider(final EventBus eventBus) {
 			placeController = new PlaceController(eventBus);
 		}
 

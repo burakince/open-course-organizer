@@ -13,12 +13,12 @@ public class AppActivityMapper implements ActivityMapper {
 	private final ClientFactory clientFactory;
 
 	@Inject
-	public AppActivityMapper(ClientFactory clientFactory) {
+	public AppActivityMapper(final ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
 	}
 
 	@Override
-	public Activity getActivity(Place place) {
+	public Activity getActivity(final Place place) {
 		if (place instanceof HomePlace)
 			return new HomeActivity(clientFactory);
 		return null;

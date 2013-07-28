@@ -12,13 +12,13 @@ public class HomeActivity extends AbstractActivity {
 	private final ClientFactory clientFactory;
 
 	@Inject
-	public HomeActivity(ClientFactory clientFactory) {
+	public HomeActivity(final ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
 	}
 
 	@Override
-	public void start(AcceptsOneWidget panel, EventBus eventBus) {
-		HomeView.Presenter presenter = clientFactory.getHomePresenter();
+	public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
+		final HomeView.Presenter presenter = clientFactory.getHomePresenter();
 		presenter.go(panel);
 	}
 

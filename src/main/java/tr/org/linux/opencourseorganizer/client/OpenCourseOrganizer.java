@@ -8,7 +8,7 @@ public class OpenCourseOrganizer implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		ClientFactory clientFactory = GWT.create(ClientFactory.class);
+		final ClientFactory clientFactory = GWT.create(ClientFactory.class);
 		clientFactory.getApp().run(RootLayoutPanel.get());
 	}
 

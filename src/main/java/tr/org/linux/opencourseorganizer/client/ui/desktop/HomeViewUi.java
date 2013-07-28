@@ -25,13 +25,13 @@ public class HomeViewUi extends Composite implements HasText, HomeView {
 
 	@SuppressWarnings("unused")
 	private Presenter presenter;
-	private Messages messages;
-	private Constants constants;
+	private final Messages messages;
+	private final Constants constants;
 
 	@UiField Button button;
 
 	@Inject
-	public HomeViewUi(Messages messages, Constants constants) {
+	public HomeViewUi(final Messages messages, final Constants constants) {
 		this.messages = messages;
 		this.constants = constants;
 		initWidget(uiBinder.createAndBindUi(this));

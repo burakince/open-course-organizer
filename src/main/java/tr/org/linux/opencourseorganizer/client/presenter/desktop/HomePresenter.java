@@ -9,19 +9,19 @@ import com.google.web.bindery.event.shared.EventBus;
 
 public class HomePresenter implements Presenter {
 
-	private HomeView view;
+	private final HomeView view;
 	@SuppressWarnings("unused")
-	private EventBus eventBus;
+	private final EventBus eventBus;
 
 	@Inject
-	public HomePresenter(EventBus eventBus, HomeView view) {
+	public HomePresenter(final EventBus eventBus, final HomeView view) {
 		this.view = view;
 		this.eventBus = eventBus;
 		view.setPresenter(this);
 	}
 
 	@Override
-	public void go(AcceptsOneWidget panel) {
+	public void go(final AcceptsOneWidget panel) {
 		panel.setWidget(view);
 	}
 

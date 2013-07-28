@@ -27,8 +27,10 @@ public class DesktopApp implements App {
 	private final PlaceHistoryMapper placeHistoryMapper;
 
 	@Inject
-	public DesktopApp(EventBus eventBus, PlaceController placeController,
-			ActivityMapper activityMapper, PlaceHistoryMapper placeHistoryMapper) {
+	public DesktopApp(final EventBus eventBus,
+			final PlaceController placeController,
+			final ActivityMapper activityMapper,
+			final PlaceHistoryMapper placeHistoryMapper) {
 		this.eventBus = eventBus;
 		this.placeController = placeController;
 		this.activityMapper = activityMapper;
