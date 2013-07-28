@@ -7,7 +7,7 @@ import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.inject.client.Ginjector;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
-import com.google.gwt.event.shared.EventBus;
+import com.google.web.bindery.event.shared.EventBus;
 
 public interface ClientFactory extends Ginjector {
 

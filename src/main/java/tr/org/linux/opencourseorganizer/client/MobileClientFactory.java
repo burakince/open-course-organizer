@@ -7,7 +7,7 @@ import tr.org.linux.opencourseorganizer.client.ui.Home.Presenter;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
-import com.google.gwt.event.shared.EventBus;
+import com.google.web.bindery.event.shared.EventBus;
 
 public class MobileClientFactory implements ClientFactory {
 
