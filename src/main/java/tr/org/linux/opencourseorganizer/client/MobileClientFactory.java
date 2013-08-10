@@ -2,7 +2,7 @@ package tr.org.linux.opencourseorganizer.client;
 
 import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.exception.UnsupportedClientException;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeView.Presenter;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeDisplay.Presenter;
 
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.PlaceController;

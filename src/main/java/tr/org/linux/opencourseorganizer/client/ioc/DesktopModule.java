@@ -7,8 +7,8 @@ import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.application.DesktopApp;
 import tr.org.linux.opencourseorganizer.client.place.AppPlaceHistoryMapper;
 import tr.org.linux.opencourseorganizer.client.presenter.desktop.HomePresenter;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeView;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeViewUi;
 
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Inject;
@@ -33,9 +33,9 @@ public class DesktopModule extends AbstractGinModule {
 		bind(Messages.class).in(Singleton.class);
 		bind(Constants.class).in(Singleton.class);
 
-		bind(HomeView.class).to(HomeViewUi.class).asEagerSingleton();
+		bind(HomeDisplay.class).to(HomeView.class).asEagerSingleton();
 
-		bind(HomeView.Presenter.class).to(HomePresenter.class);
+		bind(HomeDisplay.Presenter.class).to(HomePresenter.class);
 	}
 
 	static class PlaceControllerProvider implements Provider<PlaceController> {

@@ -1,7 +1,7 @@
 package tr.org.linux.opencourseorganizer.client;
 
 import tr.org.linux.opencourseorganizer.client.application.App;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeView;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeDisplay;
 
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.inject.client.Ginjector;
@@ -21,6 +21,6 @@ public interface ClientFactory extends Ginjector {
 
 	PlaceHistoryMapper getPlaceHistoryMapper();
 
-	HomeView.Presenter getHomePresenter();
+	HomeDisplay.Presenter getHomePresenter();
 
 }
