@@ -1,14 +1,16 @@
 package tr.org.linux.opencourseorganizer.client.application;
 
+import java.util.logging.Logger;
+
 import tr.org.linux.opencourseorganizer.client.place.Home;
 
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
-import com.google.web.bindery.event.shared.EventBus;
 import com.google.gwt.event.shared.UmbrellaException;
 import com.google.gwt.place.shared.Place;
+import com.google.gwt.place.shared.PlaceChangeEvent;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
@@ -16,10 +18,12 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
 
 public class DesktopApp implements App {
 
-	private static Place defaultPlace = new Home("home");
+	private static final Logger log = Logger.getLogger(DesktopApp.class.getName());
+	private final Place defaultPlace = new Home("home");
 
 	private final EventBus eventBus;
 	private final PlaceController placeController;
@@ -55,14 +59,26 @@ public class DesktopApp implements App {
 			}
 		});
 
+		log.info("DesktopApp is running.");
+
+		eventBus.addHandler(PlaceChangeEvent.TYPE, new PlaceChangeEvent.Handler() {
+			
+			@Override
+			public void onPlaceChange(PlaceChangeEvent event) {
+				placeController.goTo(event.getNewPlace());
+			}
+		});
+
 		SimplePanel panel = new SimplePanel();
-		parentView.add(panel);
 
 		ActivityManager activityManager = new ActivityManager(activityMapper, eventBus);
 		activityManager.setDisplay(panel);
 
 		PlaceHistoryHandler placeHistoryHandler = new PlaceHistoryHandler(placeHistoryMapper);
 		placeHistoryHandler.register(placeController, eventBus, defaultPlace);
+
+		parentView.add(panel);
+
 		placeHistoryHandler.handleCurrentHistory();
 	}
 

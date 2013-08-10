@@ -9,5 +9,7 @@
 	<g:HTMLPanel>
 		Hello,
 		<g:Button styleName="{style.important}" ui:field="button" />
+		<br />
+		<g:Button ui:field="eventsButton" text="Go Events" />
 	</g:HTMLPanel>
 </ui:UiBinder> 

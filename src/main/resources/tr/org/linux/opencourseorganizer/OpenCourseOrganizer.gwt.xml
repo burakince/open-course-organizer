@@ -16,6 +16,12 @@
   <inherits name='com.google.gwt.place.Place' />
   <!-- <inherits name='com.google.web.bindery.requestfactory.RequestFactory' /> -->
 
+  <!-- Logging Module                                             -->
+  <inherits name="com.google.gwt.logging.Logging"/>
+    <set-property name="gwt.logging.logLevel"		value="INFO"/>
+    <set-property name="gwt.logging.enabled"		value="TRUE"/>
+    <set-property name="gwt.logging.popupHandler"	value="DISABLED"/>
+
   <!-- Specify the app entry point class.                         -->
   <entry-point class='tr.org.linux.opencourseorganizer.client.OpenCourseOrganizer' />
 

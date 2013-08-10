@@ -14,7 +14,6 @@ public class Events extends Place {
 		public Events getPlace(final String token) {
 			return new Events(token);
 		}
-
 	}
 
 	private String token;

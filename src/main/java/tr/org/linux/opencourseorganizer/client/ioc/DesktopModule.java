@@ -8,9 +8,9 @@ import tr.org.linux.opencourseorganizer.client.application.DesktopApp;
 import tr.org.linux.opencourseorganizer.client.place.AppPlaceHistoryMapper;
 import tr.org.linux.opencourseorganizer.client.presenter.desktop.EventsPresenter;
 import tr.org.linux.opencourseorganizer.client.presenter.desktop.HomePresenter;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.EventView;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.EventsDisplay;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.HomeDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.EventsView;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeView;
 
 import com.google.gwt.inject.client.AbstractGinModule;
@@ -29,6 +29,7 @@ public class DesktopModule extends AbstractGinModule {
 	protected void configure() {
 		bind(App.class).to(DesktopApp.class).in(Singleton.class);
 		bind(EventBus.class).to(SimpleEventBus.class).asEagerSingleton();
+//		bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
 		bind(PlaceController.class).toProvider(PlaceControllerProvider.class).in(Singleton.class);
 		bind(ActivityMapper.class).to(AppActivityMapper.class).in(Singleton.class);
 		bind(PlaceHistoryMapper.class).to(AppPlaceHistoryMapper.class).in(Singleton.class);
@@ -37,7 +38,7 @@ public class DesktopModule extends AbstractGinModule {
 		bind(Constants.class).in(Singleton.class);
 
 		bind(HomeDisplay.class).to(HomeView.class).asEagerSingleton();
-		bind(EventsDisplay.class).to(EventView.class).asEagerSingleton();
+		bind(EventsDisplay.class).to(EventsView.class).asEagerSingleton();
 
 		bind(HomeDisplay.Presenter.class).to(HomePresenter.class);
 		bind(EventsDisplay.Presenter.class).to(EventsPresenter.class);

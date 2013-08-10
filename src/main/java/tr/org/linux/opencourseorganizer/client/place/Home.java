@@ -14,7 +14,6 @@ public class Home extends Place {
 		public Home getPlace(final String token) {
 			return new Home(token);
 		}
-
 	}
 
 	private String token;

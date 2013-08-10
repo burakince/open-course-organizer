@@ -2,6 +2,7 @@ package tr.org.linux.opencourseorganizer.client.ui.desktop;
 
 import tr.org.linux.opencourseorganizer.client.Constants;
 import tr.org.linux.opencourseorganizer.client.Messages;
+import tr.org.linux.opencourseorganizer.client.ui.HomeDisplay;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -22,12 +23,12 @@ public class HomeView extends Composite implements HomeDisplay {
 
 	private static HomeViewUiBinder uiBinder = GWT.create(HomeViewUiBinder.class);
 
-	@SuppressWarnings("unused")
 	private Presenter presenter;
 	private final Messages messages;
 	private final Constants constants;
 
 	@UiField Button button;
+	@UiField Button eventsButton;
 
 	@Inject
 	public HomeView(final Messages messages, final Constants constants) {
@@ -42,9 +43,19 @@ public class HomeView extends Composite implements HomeDisplay {
 		this.presenter = presenter;
 	}
 
+	@Override
+	public void showAlert() {
+		Window.alert(messages.salute());
+	}
+
 	@UiHandler("button")
 	void onClick(ClickEvent e) {
-		Window.alert(messages.salute());
+		showAlert();
+	}
+
+	@UiHandler("eventsButton")
+	void onClickEventsButton(ClickEvent e) {
+		presenter.goEventsView();
 	}
 
 	private void initialize() {

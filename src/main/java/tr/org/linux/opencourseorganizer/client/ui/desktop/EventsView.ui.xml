@@ -8,5 +8,7 @@
 	</ui:style>
 	<g:HTMLPanel>
 		Hello
+		<br />
+		<g:Button ui:field="homeButton" text="Go Home" />
 	</g:HTMLPanel>
 </ui:UiBinder>

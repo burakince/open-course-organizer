@@ -1,7 +1,7 @@
 package tr.org.linux.opencourseorganizer.client.activity;
 
 import tr.org.linux.opencourseorganizer.client.ClientFactory;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.EventsDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
@@ -19,6 +19,7 @@ public class EventsActivity extends AbstractActivity {
 	@Override
 	public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
 		final EventsDisplay.Presenter presenter = clientFactory.getEventsPresenter();
+		presenter.setEventBus(eventBus);
 		presenter.go(panel);
 	}
 
