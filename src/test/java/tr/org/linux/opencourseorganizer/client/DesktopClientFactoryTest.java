@@ -6,26 +6,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import tr.org.linux.opencourseorganizer.client.application.App;
-
-import com.google.gwt.core.shared.GWT;
-import com.google.gwt.place.shared.PlaceController;
-import com.google.gwtmockito.GwtMock;
 import com.google.gwtmockito.GwtMockitoTestRunner;
-import com.google.web.bindery.event.shared.EventBus;
 
 @RunWith(GwtMockitoTestRunner.class)
 public class DesktopClientFactoryTest {
 
-	@GwtMock App app;
-	@GwtMock EventBus eventBus;
-	@GwtMock PlaceController placeController;
-
-	private ClientFactory clientFactory;
+	private DesktopClientFactory clientFactory;
 
 	@Before
 	public void setUp() throws Exception {
-		clientFactory = GWT.create(ClientFactory.class);
+		clientFactory = new DesktopClientFactory();
 	}
 
 	@Test
@@ -41,6 +31,26 @@ public class DesktopClientFactoryTest {
 	@Test
 	public void clientFactoryPlaceControllerShouldNotBeNull() throws Exception {
 		assertNotNull(clientFactory.getPlaceController());
+	}
+
+	@Test
+	public void clientFactoryActivityMapperShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getActivityMapper());
+	}
+
+	@Test
+	public void clientFactoryPlaceHistoryMapperShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getPlaceHistoryMapper());
+	}
+
+	@Test
+	public void clientFactoryHomePresenterShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getHomePresenter());
+	}
+
+	@Test
+	public void clientFactoryEventsPresenterShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getEventsPresenter());
 	}
 
 }

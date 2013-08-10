@@ -1,7 +1,7 @@
 package tr.org.linux.opencourseorganizer.client.activity;
 
-import com.google.web.bindery.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.google.web.bindery.event.shared.EventBus;
 
 public abstract class AbstractActivity extends com.google.gwt.activity.shared.AbstractActivity {
 
