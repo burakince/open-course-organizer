@@ -11,6 +11,7 @@ import tr.org.linux.opencourseorganizer.client.application.DesktopAppTest;
 	OpenCourseOrganizerTest.class,
 	DesktopClientFactoryTest.class,
 	DesktopAppTest.class,
-	MobileClientFactoryTest.class
+	MobileClientFactoryTest.class,
+	TabletClientFactoryTest.class
 	})
 public class OpenCourseOrganizerTestSuite {}
