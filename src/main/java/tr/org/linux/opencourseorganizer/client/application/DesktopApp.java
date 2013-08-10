@@ -1,6 +1,6 @@
 package tr.org.linux.opencourseorganizer.client.application;
 
-import tr.org.linux.opencourseorganizer.client.place.HomePlace;
+import tr.org.linux.opencourseorganizer.client.place.Home;
 
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
@@ -19,7 +19,7 @@ import com.google.inject.Inject;
 
 public class DesktopApp implements App {
 
-	private static Place defaultPlace = new HomePlace("home");
+	private static Place defaultPlace = new Home("home");
 
 	private final EventBus eventBus;
 	private final PlaceController placeController;

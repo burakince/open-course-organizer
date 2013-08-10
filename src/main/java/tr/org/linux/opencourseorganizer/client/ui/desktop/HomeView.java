@@ -12,11 +12,10 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 
-public class HomeView extends Composite implements HasText, HomeDisplay {
+public class HomeView extends Composite implements HomeDisplay {
 
 	@UiTemplate("HomeView.ui.xml")
 	interface HomeViewUiBinder extends UiBinder<Widget, HomeView> {}
@@ -43,21 +42,13 @@ public class HomeView extends Composite implements HasText, HomeDisplay {
 		this.presenter = presenter;
 	}
 
-	private void initialize() {
-		button.setText(constants.test());
-	}
-
 	@UiHandler("button")
 	void onClick(ClickEvent e) {
 		Window.alert(messages.salute());
 	}
 
-	public void setText(String text) {
-		button.setText(text);
-	}
-
-	public String getText() {
-		return button.getText();
+	private void initialize() {
+		button.setText(constants.test());
 	}
 
 }

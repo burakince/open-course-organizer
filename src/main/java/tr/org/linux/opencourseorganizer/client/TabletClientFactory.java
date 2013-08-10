@@ -2,7 +2,8 @@ package tr.org.linux.opencourseorganizer.client;
 
 import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.exception.UnsupportedClientException;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeDisplay.Presenter;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.EventsDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeDisplay;
 
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.PlaceController;
@@ -37,7 +38,12 @@ public class TabletClientFactory implements ClientFactory {
 	}
 
 	@Override
-	public Presenter getHomePresenter() {
+	public HomeDisplay.Presenter getHomePresenter() {
+		throw new UnsupportedClientException();
+	}
+
+	@Override
+	public EventsDisplay.Presenter getEventsPresenter() {
 		throw new UnsupportedClientException();
 	}
 
