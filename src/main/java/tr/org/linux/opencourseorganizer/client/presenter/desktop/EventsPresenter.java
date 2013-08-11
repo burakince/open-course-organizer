@@ -1,6 +1,6 @@
 package tr.org.linux.opencourseorganizer.client.presenter.desktop;
 
-import tr.org.linux.opencourseorganizer.client.place.Home;
+import tr.org.linux.opencourseorganizer.client.place.HomePlace;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay.Presenter;
 
@@ -32,7 +32,7 @@ public class EventsPresenter implements Presenter {
 
 	@Override
 	public void goHomeView() {
-		eventBus.fireEvent(new PlaceChangeEvent(new Home("home")));
+		eventBus.fireEvent(new PlaceChangeEvent(new HomePlace("home")));
 	}
 
 }

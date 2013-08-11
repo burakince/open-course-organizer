@@ -2,7 +2,7 @@ package tr.org.linux.opencourseorganizer.client.application;
 
 import java.util.logging.Logger;
 
-import tr.org.linux.opencourseorganizer.client.place.Home;
+import tr.org.linux.opencourseorganizer.client.place.HomePlace;
 
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
@@ -23,7 +23,7 @@ import com.google.web.bindery.event.shared.EventBus;
 public class DesktopApp implements App {
 
 	private static final Logger log = Logger.getLogger(DesktopApp.class.getName());
-	private final Place defaultPlace = new Home("home");
+	private final Place defaultPlace = new HomePlace("home");
 
 	private final EventBus eventBus;
 	private final PlaceController placeController;
