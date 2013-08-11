@@ -47,6 +47,26 @@ public class DesktopApp implements App {
 	@Override
 	public void run(HasWidgets.ForIsWidget parentView) {
 
+		setUncaughtExceptionHandler();
+
+		log.info("DesktopApp is running.");
+
+		setPlaceChangeEventHandler();
+
+		shell.setEventBus(eventBus);
+
+		ActivityManager activityManager = new ActivityManager(activityMapper, eventBus);
+		activityManager.setDisplay(shell.getView());
+
+		PlaceHistoryHandler placeHistoryHandler = new PlaceHistoryHandler(placeHistoryMapper);
+		placeHistoryHandler.register(placeController, eventBus, defaultPlace);
+
+		parentView.add(shell.getView());
+
+		placeHistoryHandler.handleCurrentHistory();
+	}
+
+	private void setUncaughtExceptionHandler() {
 		GWT.setUncaughtExceptionHandler(new UncaughtExceptionHandler() {
 			@Override
 			public void onUncaughtException(Throwable e) {
@@ -61,9 +81,9 @@ public class DesktopApp implements App {
 				Window.alert("An unexpected error occurred: " + message);
 			}
 		});
+	}
 
-		log.info("DesktopApp is running.");
-
+	private void setPlaceChangeEventHandler() {
 		eventBus.addHandler(PlaceChangeEvent.TYPE, new PlaceChangeEvent.Handler() {
 			
 			@Override
@@ -71,18 +91,6 @@ public class DesktopApp implements App {
 				placeController.goTo(event.getNewPlace());
 			}
 		});
-
-		shell.setEventBus(eventBus);
-
-		ActivityManager activityManager = new ActivityManager(activityMapper, eventBus);
-		activityManager.setDisplay(shell.getView());
-
-		PlaceHistoryHandler placeHistoryHandler = new PlaceHistoryHandler(placeHistoryMapper);
-		placeHistoryHandler.register(placeController, eventBus, defaultPlace);
-
-		parentView.add(shell.getView());
-
-		placeHistoryHandler.handleCurrentHistory();
 	}
 
 }
