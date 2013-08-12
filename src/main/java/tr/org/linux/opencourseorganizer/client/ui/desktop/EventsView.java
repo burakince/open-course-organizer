@@ -25,10 +25,9 @@ public class EventsView extends Composite implements EventsDisplay {
 	private Presenter presenter;
 	@SuppressWarnings("unused")
 	private final Messages messages;
-	@SuppressWarnings("unused")
 	private final Constants constants;
 
-	@UiField Button homeButton;
+	@UiField Button subjectButton;
 
 	@Inject
 	public EventsView(final Messages messages, final Constants constants) {
@@ -43,14 +42,13 @@ public class EventsView extends Composite implements EventsDisplay {
 		this.presenter = presenter;
 	}
 
-	@UiHandler("homeButton")
+	@UiHandler("subjectButton")
 	void onClickEventsButton(ClickEvent e) {
-		presenter.goHomeView();
+		presenter.goSubjectView();
 	}
 
 	private void initialize() {
-		// TODO Auto-generated method stub
-		
+		subjectButton.setText(constants.subject());
 	}
 
 }

@@ -12,7 +12,7 @@ public interface EventsDisplay extends IsWidget {
 
 		void setEventBus(EventBus eventBus);
 
-		void goHomeView();
+		void goSubjectView();
 
 	}
 

@@ -1,24 +1,24 @@
 package tr.org.linux.opencourseorganizer.client.activity;
 
 import tr.org.linux.opencourseorganizer.client.ClientFactory;
-import tr.org.linux.opencourseorganizer.client.ui.HomeDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 
-public class HomeActivity extends AbstractActivity {
+public class SubjectActivity extends AbstractActivity {
 
 	private final ClientFactory clientFactory;
 
 	@Inject
-	public HomeActivity(final ClientFactory clientFactory) {
+	public SubjectActivity(final ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
 	}
 
 	@Override
 	public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
-		final HomeDisplay.Presenter presenter = clientFactory.getHomePresenter();
+		final SubjectDisplay.Presenter presenter = clientFactory.getSubjectPresenter();
 		presenter.setEventBus(eventBus);
 		presenter.go(panel);
 	}

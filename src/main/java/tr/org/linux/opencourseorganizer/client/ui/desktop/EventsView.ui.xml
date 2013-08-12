@@ -9,6 +9,6 @@
 	<g:HTMLPanel>
 		Hello
 		<br />
-		<g:Button ui:field="homeButton" text="Go Home" />
+		<g:Button ui:field="subjectButton" />
 	</g:HTMLPanel>
 </ui:UiBinder>

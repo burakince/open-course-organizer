@@ -2,7 +2,7 @@ package tr.org.linux.opencourseorganizer.client.ui.desktop;
 
 import tr.org.linux.opencourseorganizer.client.Constants;
 import tr.org.linux.opencourseorganizer.client.Messages;
-import tr.org.linux.opencourseorganizer.client.ui.HomeDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -16,10 +16,10 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 
-public class HomeView extends Composite implements HomeDisplay {
+public class SubjectView extends Composite implements SubjectDisplay {
 
-	@UiTemplate("HomeView.ui.xml")
-	interface HomeViewUiBinder extends UiBinder<Widget, HomeView> {}
+	@UiTemplate("SubjectView.ui.xml")
+	interface HomeViewUiBinder extends UiBinder<Widget, SubjectView> {}
 
 	private static HomeViewUiBinder uiBinder = GWT.create(HomeViewUiBinder.class);
 
@@ -31,7 +31,7 @@ public class HomeView extends Composite implements HomeDisplay {
 	@UiField Button eventsButton;
 
 	@Inject
-	public HomeView(final Messages messages, final Constants constants) {
+	public SubjectView(final Messages messages, final Constants constants) {
 		this.messages = messages;
 		this.constants = constants;
 		initWidget(uiBinder.createAndBindUi(this));
@@ -60,6 +60,7 @@ public class HomeView extends Composite implements HomeDisplay {
 
 	private void initialize() {
 		button.setText(constants.test());
+		eventsButton.setText(constants.event());
 	}
 
 }

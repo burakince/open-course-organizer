@@ -3,7 +3,7 @@ package tr.org.linux.opencourseorganizer.client;
 import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.ioc.DesktopInjector;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
-import tr.org.linux.opencourseorganizer.client.ui.HomeDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.shared.GWT;
@@ -41,13 +41,13 @@ public class DesktopClientFactory implements ClientFactory {
 	}
 
 	@Override
-	public HomeDisplay.Presenter getHomePresenter() {
-		return injector.getHomePresenter();
+	public EventsDisplay.Presenter getEventsPresenter() {
+		return injector.getEventsPresenter();
 	}
 
 	@Override
-	public EventsDisplay.Presenter getEventsPresenter() {
-		return injector.getEventsPresenter();
+	public SubjectDisplay.Presenter getSubjectPresenter() {
+		return injector.getSubjectPresenter();
 	}
 
 }

@@ -40,13 +40,13 @@ public class MobileClientFactoryTest {
 	}
 
 	@Test(expected = UnsupportedClientException.class)
-	public void clientFactoryHomePresenterShouldThrowUnsupportedClientException() throws Exception {
-		clientFactory.getHomePresenter();
+	public void clientFactoryEventsPresenterShouldThrowUnsupportedClientException() throws Exception {
+		clientFactory.getEventsPresenter();
 	}
 
 	@Test(expected = UnsupportedClientException.class)
-	public void clientFactoryEventsPresenterShouldThrowUnsupportedClientException() throws Exception {
-		clientFactory.getEventsPresenter();
+	public void clientFactorySubjectPresenterShouldThrowUnsupportedClientException() throws Exception {
+		clientFactory.getSubjectPresenter();
 	}
 
 }

@@ -8,13 +8,13 @@ import tr.org.linux.opencourseorganizer.client.application.DesktopApp;
 import tr.org.linux.opencourseorganizer.client.place.AppPlaceHistoryMapper;
 import tr.org.linux.opencourseorganizer.client.presenter.desktop.ShellPresenter;
 import tr.org.linux.opencourseorganizer.client.presenter.desktop.EventsPresenter;
-import tr.org.linux.opencourseorganizer.client.presenter.desktop.HomePresenter;
+import tr.org.linux.opencourseorganizer.client.presenter.desktop.SubjectPresenter;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
-import tr.org.linux.opencourseorganizer.client.ui.HomeDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.ShellDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.ShellView;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.EventsView;
-import tr.org.linux.opencourseorganizer.client.ui.desktop.HomeView;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.SubjectView;
 
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Inject;
@@ -40,12 +40,12 @@ public class DesktopModule extends AbstractGinModule {
 		bind(Constants.class).in(Singleton.class);
 
 		bind(ShellDisplay.class).to(ShellView.class).asEagerSingleton();
-		bind(HomeDisplay.class).to(HomeView.class).asEagerSingleton();
 		bind(EventsDisplay.class).to(EventsView.class).asEagerSingleton();
+		bind(SubjectDisplay.class).to(SubjectView.class).asEagerSingleton();
 
 		bind(ShellDisplay.Presenter.class).to(ShellPresenter.class).in(Singleton.class);
-		bind(HomeDisplay.Presenter.class).to(HomePresenter.class);
 		bind(EventsDisplay.Presenter.class).to(EventsPresenter.class);
+		bind(SubjectDisplay.Presenter.class).to(SubjectPresenter.class);
 	}
 
 	static class PlaceControllerProvider implements Provider<PlaceController> {

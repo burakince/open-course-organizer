@@ -44,13 +44,13 @@ public class DesktopClientFactoryTest {
 	}
 
 	@Test
-	public void clientFactoryHomePresenterShouldNotBeNull() throws Exception {
-		assertNotNull(clientFactory.getHomePresenter());
+	public void clientFactoryEventsPresenterShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getEventsPresenter());
 	}
 
 	@Test
-	public void clientFactoryEventsPresenterShouldNotBeNull() throws Exception {
-		assertNotNull(clientFactory.getEventsPresenter());
+	public void clientFactorySubjectPresenterShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getSubjectPresenter());
 	}
 
 }

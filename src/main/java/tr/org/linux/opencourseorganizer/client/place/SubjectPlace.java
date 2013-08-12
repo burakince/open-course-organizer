@@ -4,23 +4,23 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 import com.google.gwt.place.shared.Prefix;
 
-public class HomePlace extends Place {
+public class SubjectPlace extends Place {
 
-	@Prefix(value = "home")
-	public static class Tokenizer implements PlaceTokenizer<HomePlace> {
+	@Prefix(value = "subject")
+	public static class Tokenizer implements PlaceTokenizer<SubjectPlace> {
 
-		public String getToken(final HomePlace place) {
+		public String getToken(final SubjectPlace place) {
 			return place.getToken();
 		}
 
-		public HomePlace getPlace(final String token) {
-			return new HomePlace(token);
+		public SubjectPlace getPlace(final String token) {
+			return new SubjectPlace(token);
 		}
 	}
 
 	private String token;
 
-	public HomePlace(String token) {
+	public SubjectPlace(String token) {
 		this.token = token;
 	}
 

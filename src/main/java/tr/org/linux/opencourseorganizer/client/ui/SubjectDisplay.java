@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.event.shared.EventBus;
 
-public interface HomeDisplay extends IsWidget {
+public interface SubjectDisplay extends IsWidget {
 
 	public interface Presenter {
 

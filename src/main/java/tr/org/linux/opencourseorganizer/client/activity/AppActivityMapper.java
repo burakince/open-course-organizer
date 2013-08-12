@@ -2,7 +2,7 @@ package tr.org.linux.opencourseorganizer.client.activity;
 
 import tr.org.linux.opencourseorganizer.client.ClientFactory;
 import tr.org.linux.opencourseorganizer.client.place.EventsPlace;
-import tr.org.linux.opencourseorganizer.client.place.HomePlace;
+import tr.org.linux.opencourseorganizer.client.place.SubjectPlace;
 
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityMapper;
@@ -20,8 +20,8 @@ public class AppActivityMapper implements ActivityMapper {
 
 	@Override
 	public Activity getActivity(final Place place) {
-		if (place instanceof HomePlace)
-			return new HomeActivity(clientFactory);
+		if (place instanceof SubjectPlace)
+			return new SubjectActivity(clientFactory);
 		else if (place instanceof EventsPlace)
 			return new EventsActivity(clientFactory);
 		return null;
