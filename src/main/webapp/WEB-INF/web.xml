@@ -11,9 +11,24 @@
     <servlet-class>tr.org.linux.opencourseorganizer.server.GreetingServiceImpl</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>requestFactoryServlet</servlet-name>
+    <servlet-class>com.google.web.bindery.requestfactory.server.RequestFactoryServlet</servlet-class>
+    <init-param>
+      <param-name>symbolMapsDirectory</param-name>
+      <param-value>WEB-INF/classes/symbolMaps/</param-value>
+    </init-param>
+  </servlet>
+
+  <!-- Servlet Mappings -->
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
     <url-pattern>/OpenCourseOrganizer/greet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>requestFactoryServlet</servlet-name>
+    <url-pattern>/gwtRequest</url-pattern>
   </servlet-mapping>
 
   <!-- Default page to serve -->
