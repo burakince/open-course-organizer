@@ -2,6 +2,7 @@ package tr.org.linux.opencourseorganizer.shared;
 
 import java.util.List;
 
+import tr.org.linux.opencourseorganizer.server.domain.AppServiceLocator;
 import tr.org.linux.opencourseorganizer.server.domain.Event;
 
 import com.google.web.bindery.requestfactory.shared.InstanceRequest;
@@ -9,7 +10,7 @@ import com.google.web.bindery.requestfactory.shared.Request;
 import com.google.web.bindery.requestfactory.shared.RequestContext;
 import com.google.web.bindery.requestfactory.shared.Service;
 
-@Service(Event.class)
+@Service(value = Event.class, locator = AppServiceLocator.class)
 public interface EventRequest extends RequestContext {
 
 	Request<Long> countEvents();
