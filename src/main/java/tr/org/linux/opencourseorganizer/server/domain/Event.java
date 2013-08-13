@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -17,6 +18,10 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Version
+	@Column(name = "Version")
+	private Long version;
+
 	@Column(name = "Name")
 	@NotNull
 	private String name;
@@ -27,6 +32,14 @@ public class Event {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
 	}
 
 	public String getName() {
