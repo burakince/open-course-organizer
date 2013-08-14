@@ -3,7 +3,10 @@ package tr.org.linux.opencourseorganizer.client.presenter.desktop;
 import tr.org.linux.opencourseorganizer.client.place.SubjectPlace;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay.Presenter;
+import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
+import tr.org.linux.opencourseorganizer.shared.EventRequest;
 
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.place.shared.PlaceChangeEvent;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
@@ -28,6 +31,10 @@ public class EventsPresenter implements Presenter {
 	@Override
 	public void go(AcceptsOneWidget panel) {
 		panel.setWidget(view);
+		AppRequestFactory factory = GWT.create(AppRequestFactory.class);
+		factory.initialize(eventBus);
+		EventRequest request = factory.eventRequest();
+		view.setEvents(request.findAllEvents());
 	}
 
 	@Override

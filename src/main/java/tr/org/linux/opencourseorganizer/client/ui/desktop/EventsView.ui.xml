@@ -10,5 +10,7 @@
 		Hello
 		<br />
 		<g:Button ui:field="subjectButton" />
+		<br />
+		<g:VerticalPanel ui:field="eventsPanel" />
 	</g:HTMLPanel>
 </ui:UiBinder>
