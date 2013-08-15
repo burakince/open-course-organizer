@@ -9,23 +9,24 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "Event")
-public class Event {
+//@Entity
+//@Table(name = "Event")
+public class Event implements Identifiable, Versionable {
 
-	@Id
-	@Column(name = "Id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+//	@Column(name = "Id")
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Version
-	@Column(name = "Version")
+//	@Version
+//	@Column(name = "Version")
 	private Long version;
 
-	@Column(name = "Name")
-	@NotNull
+//	@Column(name = "Name")
+//	@NotNull
 	private String name;
 
+	@Override
 	public Long getId() {
 		return id;
 	}
@@ -34,6 +35,7 @@ public class Event {
 		this.id = id;
 	}
 
+	@Override
 	public Long getVersion() {
 		return version;
 	}
