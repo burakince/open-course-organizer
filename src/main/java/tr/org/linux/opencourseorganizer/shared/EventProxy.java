@@ -16,6 +16,6 @@ public interface EventProxy extends EntityProxy {
 
 	void setName(String name);
 
-	EntityProxyId<EventProxy> stableId();
+//	EntityProxyId<EventProxy> stableId();
 
 }
