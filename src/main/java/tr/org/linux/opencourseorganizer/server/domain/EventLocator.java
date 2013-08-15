@@ -1,5 +1,8 @@
 package tr.org.linux.opencourseorganizer.server.domain;
 
+import tr.org.linux.opencourseorganizer.server.dao.EventDao;
+import tr.org.linux.opencourseorganizer.server.dao.EventDaoImpl;
+
 import com.google.web.bindery.requestfactory.shared.Locator;
 
 public class EventLocator extends Locator<Event, Long> {
@@ -11,7 +14,8 @@ public class EventLocator extends Locator<Event, Long> {
 
 	@Override
 	public Event find(Class<? extends Event> clazz, Long id) {
-		return null;
+		EventDao dao = new EventDaoImpl();
+		return dao.findById(id);
 	}
 
 	@Override
