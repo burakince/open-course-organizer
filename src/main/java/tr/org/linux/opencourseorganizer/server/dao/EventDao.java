@@ -10,6 +10,8 @@ public interface EventDao {
 
 	public List<Event> findAllEvents();
 
-	public Event findEvent(Long id);
+	public Event findById(Long id);
+
+	public void save(Event event);
 
 }

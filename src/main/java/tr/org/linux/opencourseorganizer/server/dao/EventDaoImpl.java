@@ -28,8 +28,14 @@ public class EventDaoImpl implements EventDao {
 	}
 
 	@Override
-	public Event findEvent(Long id) {
+	public Event findById(Long id) {
 		return e;
+	}
+
+	@Override
+	public void save(Event event) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
