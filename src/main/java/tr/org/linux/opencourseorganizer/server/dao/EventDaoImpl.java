@@ -8,6 +8,7 @@ import tr.org.linux.opencourseorganizer.server.domain.Event;
 public class EventDaoImpl implements EventDao {
 
 	private Event e = new Event();
+	private List<Event> events;
 
 	public EventDaoImpl() {
 		e.setId(new Long(1));
@@ -21,12 +22,9 @@ public class EventDaoImpl implements EventDao {
 
 	@Override
 	public List<Event> findAllEvents() {
-		return new ArrayList<Event>() {
-			private static final long serialVersionUID = -6775679999964806451L;
-			{
-				add(e);
-			}
-		};
+		events = new ArrayList<Event>();
+		events.add(e);
+		return events;
 	}
 
 	@Override
