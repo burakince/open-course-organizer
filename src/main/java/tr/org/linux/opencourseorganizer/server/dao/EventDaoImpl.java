@@ -7,12 +7,13 @@ import tr.org.linux.opencourseorganizer.server.domain.Event;
 
 public class EventDaoImpl implements EventDao {
 
-	private Event e = new Event();
-	private List<Event> events;
+	private Event event = new Event();
+	private List<Event> events = new ArrayList<Event>();
 
 	public EventDaoImpl() {
-		e.setId(new Long(1));
-		e.setName("Kamp2013");
+		event.setId(new Long(1));
+		event.setName("Kamp2013");
+		events.add(event);
 	}
 
 	@Override
@@ -22,20 +23,17 @@ public class EventDaoImpl implements EventDao {
 
 	@Override
 	public List<Event> findAllEvents() {
-		events = new ArrayList<Event>();
-		events.add(e);
 		return events;
 	}
 
 	@Override
 	public Event findById(Long id) {
-		return e;
+		return event;
 	}
 
 	@Override
 	public void save(Event event) {
-		// TODO Auto-generated method stub
-		
+		events.add(event);
 	}
 
 }
