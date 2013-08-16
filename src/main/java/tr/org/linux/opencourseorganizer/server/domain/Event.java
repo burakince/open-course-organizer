@@ -1,13 +1,13 @@
 package tr.org.linux.opencourseorganizer.server.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Version;
-import javax.validation.constraints.NotNull;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+//import javax.persistence.Id;
+//import javax.persistence.Table;
+//import javax.persistence.Version;
+//import javax.validation.constraints.NotNull;
 
 //@Entity
 //@Table(name = "Event")
@@ -37,6 +37,9 @@ public class Event implements Identifiable, Versionable {
 
 	@Override
 	public Long getVersion() {
+		if (version == null)
+			version = new Long(0);
+		version++;
 		return version;
 	}
 

@@ -7,3 +7,5 @@
 /target
 /logs
 /src/main/webapp/WEB-INF/lib/gwt-servlet.jar
+/.apt_generated
+/.factorypath
