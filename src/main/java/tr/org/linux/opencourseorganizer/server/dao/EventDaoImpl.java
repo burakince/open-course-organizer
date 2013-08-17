@@ -13,7 +13,6 @@ public class EventDaoImpl implements EventDao {
 	public EventDaoImpl() {
 		event.setId(new Long(1));
 		event.setName("Kamp2013");
-		event.setVersion(new Long(1));
 		events.add(event);
 	}
 

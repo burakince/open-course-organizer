@@ -39,6 +39,8 @@ public class Event implements Identifiable, Versionable {
 
 	@Override
 	public Long getVersion() {
+		if (version == null)
+			version = 0L;
 		return version;
 	}
 
