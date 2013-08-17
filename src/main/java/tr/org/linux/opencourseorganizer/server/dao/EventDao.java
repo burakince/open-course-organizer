@@ -8,7 +8,7 @@ public interface EventDao {
 
 	public Long countEvents();
 
-	public List<Event> findAllEvents();
+	public List<Event> findAll();
 
 	public Event findById(Long id);
 

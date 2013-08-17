@@ -105,12 +105,12 @@
       <artifactId>hermes</artifactId>
       <version>1.2.0</version>
     </dependency>
-    <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>persistence-api</artifactId>
-      <version>1.0.2</version>
-      <scope>provided</scope>
-    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>javax.persistence</groupId> -->
+<!--       <artifactId>persistence-api</artifactId> -->
+<!--       <version>1.0.2</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
     <dependency>
       <groupId>com.google.web.bindery</groupId>
       <artifactId>requestfactory-server</artifactId>
@@ -123,9 +123,19 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20090211</version>
+    </dependency>
+    <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>4.3.0.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>0.9.30</version>
     </dependency>
   </dependencies>
 

@@ -11,7 +11,7 @@ public interface EventRequest extends RequestContext {
 
 	Request<Long> countEvents();
 
-	Request<List<EventProxy>> findAllEvents();
+	Request<List<EventProxy>> findAll();
 
 	Request<EventProxy> findById(Long id);
 

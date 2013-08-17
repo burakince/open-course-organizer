@@ -6,7 +6,6 @@ import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay.Presenter;
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 import tr.org.linux.opencourseorganizer.shared.EventRequest;
 
-import com.google.gwt.core.shared.GWT;
 import com.google.gwt.place.shared.PlaceChangeEvent;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
@@ -16,6 +15,7 @@ public class EventsPresenter implements Presenter {
 
 	private final EventsDisplay view;
 	private EventBus eventBus;
+	private AppRequestFactory factory;
 
 	@Inject
 	public EventsPresenter(final EventsDisplay view) {
@@ -29,17 +29,24 @@ public class EventsPresenter implements Presenter {
 	}
 
 	@Override
+	public void setRequestFactory(AppRequestFactory factory) {
+		this.factory = factory;
+	}
+
+	@Override
 	public void go(AcceptsOneWidget panel) {
 		panel.setWidget(view);
-		AppRequestFactory factory = GWT.create(AppRequestFactory.class);
-		factory.initialize(eventBus);
-		EventRequest request = factory.eventRequest();
-		view.setEvents(request.findAllEvents());
 	}
 
 	@Override
 	public void goSubjectView() {
 		eventBus.fireEvent(new PlaceChangeEvent(new SubjectPlace("Linux Sistem Yönetimi (1. Düzey)")));
+	}
+
+	@Override
+	public void findEvent() {
+		EventRequest request = factory.eventRequest();
+		view.loadEvent(request.findById(Long.valueOf(1)));
 	}
 
 }

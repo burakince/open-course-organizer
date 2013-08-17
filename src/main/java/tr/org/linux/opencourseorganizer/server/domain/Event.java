@@ -26,6 +26,8 @@ public class Event implements Identifiable, Versionable {
 //	@NotNull
 	private String name;
 
+	public Event() {}
+
 	@Override
 	public Long getId() {
 		return id;
@@ -37,9 +39,6 @@ public class Event implements Identifiable, Versionable {
 
 	@Override
 	public Long getVersion() {
-		if (version == null)
-			version = new Long(0);
-		version++;
 		return version;
 	}
 

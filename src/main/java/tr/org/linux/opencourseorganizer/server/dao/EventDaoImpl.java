@@ -13,22 +13,26 @@ public class EventDaoImpl implements EventDao {
 	public EventDaoImpl() {
 		event.setId(new Long(1));
 		event.setName("Kamp2013");
+		event.setVersion(new Long(1));
 		events.add(event);
 	}
 
 	@Override
 	public Long countEvents() {
-		return new Long(1);
+		return (long) events.size();
 	}
 
 	@Override
-	public List<Event> findAllEvents() {
+	public List<Event> findAll() {
 		return events;
 	}
 
 	@Override
 	public Event findById(Long id) {
-		return event;
+		for (Event event : events)
+			if (event.getId().equals(id))
+				return event;
+		return this.event;
 	}
 
 	@Override
