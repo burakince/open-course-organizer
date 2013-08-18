@@ -5,12 +5,12 @@ import java.util.List;
 
 import tr.org.linux.opencourseorganizer.server.domain.Event;
 
-public class EventDaoMock implements EventService {
+public class MockDao implements Dao {
 
 	private Event event;
 	private List<Event> events = new ArrayList<Event>();
 
-	public EventDaoMock() {
+	public MockDao() {
 		event = new Event(1L, "AB 2012");
 		events.add(event);
 		events.add(new Event(2L, "Kamp 2012"));
@@ -24,12 +24,12 @@ public class EventDaoMock implements EventService {
 	}
 
 	@Override
-	public List<Event> findAll() {
+	public List<Event> findAllEvents() {
 		return events;
 	}
 
 	@Override
-	public Event findById(Long id) {
+	public Event findEventById(Long id) {
 		for (Event event : events)
 			if (event.getId().equals(id))
 				return event;
@@ -37,7 +37,7 @@ public class EventDaoMock implements EventService {
 	}
 
 	@Override
-	public void save(Event event) {
+	public void saveEvent(Event event) {
 		events.add(event);
 	}
 

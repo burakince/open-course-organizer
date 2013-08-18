@@ -1,11 +1,15 @@
 package tr.org.linux.opencourseorganizer.server.domain;
 
-import tr.org.linux.opencourseorganizer.server.dao.EventService;
-import tr.org.linux.opencourseorganizer.server.dao.EventDaoMock;
+import tr.org.linux.opencourseorganizer.server.ioc.ServiceModule;
+import tr.org.linux.opencourseorganizer.server.service.EventService;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.google.web.bindery.requestfactory.shared.Locator;
 
 public class EventLocator extends Locator<Event, Long> {
+
+	private final Injector injector = Guice.createInjector(new ServiceModule());
 
 	@Override
 	public Event create(Class<? extends Event> clazz) {
@@ -14,8 +18,8 @@ public class EventLocator extends Locator<Event, Long> {
 
 	@Override
 	public Event find(Class<? extends Event> clazz, Long id) {
-		EventService dao = new EventDaoMock();
-		return dao.findById(id);
+		EventService service = injector.getInstance(EventService.class);
+		return service.findById(id);
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.exception.UnsupportedClientException;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
+import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.PlaceController;
@@ -34,6 +35,11 @@ public class MobileClientFactory implements ClientFactory {
 
 	@Override
 	public PlaceHistoryMapper getPlaceHistoryMapper() {
+		throw new UnsupportedClientException();
+	}
+
+	@Override
+	public AppRequestFactory getRequestFactory() {
 		throw new UnsupportedClientException();
 	}
 

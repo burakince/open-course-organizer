@@ -15,8 +15,10 @@ import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.EventsView;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.ShellView;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.SubjectView;
+import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 
 import com.google.gwt.activity.shared.ActivityMapper;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
@@ -35,6 +37,8 @@ public class DesktopModule extends AbstractGinModule {
 		bind(PlaceController.class).toProvider(PlaceControllerProvider.class).in(Singleton.class);
 		bind(ActivityMapper.class).to(AppActivityMapper.class).in(Singleton.class);
 		bind(PlaceHistoryMapper.class).to(AppPlaceHistoryMapper.class).in(Singleton.class);
+
+		bind(AppRequestFactory.class).toProvider(AppRequestFactoryProvider.class).in(Singleton.class);
 
 		bind(Messages.class).in(Singleton.class);
 		bind(Constants.class).in(Singleton.class);
@@ -59,6 +63,23 @@ public class DesktopModule extends AbstractGinModule {
 
 		public PlaceController get() {
 			return placeController;
+		}
+
+	}
+
+	static class AppRequestFactoryProvider implements Provider<AppRequestFactory> {
+
+		private final AppRequestFactory requestFactory;
+
+		@Inject
+		public AppRequestFactoryProvider(final EventBus eventBus) {
+			requestFactory = GWT.create(AppRequestFactory.class);
+			requestFactory.initialize(eventBus);
+		}
+
+		@Override
+		public AppRequestFactory get() {
+			return requestFactory;
 		}
 
 	}

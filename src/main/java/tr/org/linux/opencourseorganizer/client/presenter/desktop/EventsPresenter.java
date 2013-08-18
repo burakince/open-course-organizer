@@ -4,7 +4,7 @@ import tr.org.linux.opencourseorganizer.client.place.SubjectPlace;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay.Presenter;
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
-import tr.org.linux.opencourseorganizer.shared.EventRequest;
+import tr.org.linux.opencourseorganizer.shared.AppRequestFactory.EventRequest;
 
 import com.google.gwt.place.shared.PlaceChangeEvent;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;

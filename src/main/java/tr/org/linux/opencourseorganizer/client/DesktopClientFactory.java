@@ -4,6 +4,7 @@ import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.ioc.DesktopInjector;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
+import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.shared.GWT;
@@ -38,6 +39,11 @@ public class DesktopClientFactory implements ClientFactory {
 	@Override
 	public PlaceHistoryMapper getPlaceHistoryMapper() {
 		return injector.getPlaceHistoryMapper();
+	}
+
+	@Override
+	public AppRequestFactory getRequestFactory() {
+		return injector.getRequestFactory();
 	}
 
 	@Override

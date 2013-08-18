@@ -3,6 +3,7 @@ package tr.org.linux.opencourseorganizer.client;
 import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
+import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.inject.client.Ginjector;
@@ -21,6 +22,8 @@ public interface ClientFactory extends Ginjector {
 	ActivityMapper getActivityMapper();
 
 	PlaceHistoryMapper getPlaceHistoryMapper();
+
+	AppRequestFactory getRequestFactory();
 
 	EventsDisplay.Presenter getEventsPresenter();
 
