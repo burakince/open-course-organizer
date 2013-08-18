@@ -5,12 +5,12 @@ import java.util.List;
 
 import tr.org.linux.opencourseorganizer.server.domain.Event;
 
-public class EventDaoImpl implements EventDao {
+public class EventDaoMock implements EventDao {
 
 	private Event event;
 	private List<Event> events = new ArrayList<Event>();
 
-	public EventDaoImpl() {
+	public EventDaoMock() {
 		event = new Event(1L, "AB 2012");
 		events.add(event);
 		events.add(new Event(2L, "Kamp 2012"));
