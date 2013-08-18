@@ -6,7 +6,7 @@ import tr.org.linux.opencourseorganizer.server.dao.EventDaoMock;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 
-public class DesktopModule extends AbstractModule {
+public class DaoModule extends AbstractModule {
 
 	@Override
 	protected void configure() {

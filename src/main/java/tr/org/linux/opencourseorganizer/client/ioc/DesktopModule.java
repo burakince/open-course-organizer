@@ -26,7 +26,7 @@ import com.google.inject.Singleton;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 
-public class DesktopGinModule extends AbstractGinModule {
+public class DesktopModule extends AbstractGinModule {
 
 	@Override
 	protected void configure() {

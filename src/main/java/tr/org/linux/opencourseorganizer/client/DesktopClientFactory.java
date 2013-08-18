@@ -1,7 +1,7 @@
 package tr.org.linux.opencourseorganizer.client;
 
 import tr.org.linux.opencourseorganizer.client.application.App;
-import tr.org.linux.opencourseorganizer.client.ioc.DesktopGinjector;
+import tr.org.linux.opencourseorganizer.client.ioc.DesktopInjector;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 
@@ -13,7 +13,7 @@ import com.google.web.bindery.event.shared.EventBus;
 
 public class DesktopClientFactory implements ClientFactory {
 
-	private final DesktopGinjector injector = GWT.create(DesktopGinjector.class);
+	private final DesktopInjector injector = GWT.create(DesktopInjector.class);
 
 	@Override
 	public App getApp() {
