@@ -1,6 +1,5 @@
 package tr.org.linux.opencourseorganizer.client.activity;
 
-import tr.org.linux.opencourseorganizer.client.ClientFactory;
 import tr.org.linux.opencourseorganizer.client.place.EventsPlace;
 import tr.org.linux.opencourseorganizer.client.place.SubjectPlace;
 
@@ -11,19 +10,29 @@ import com.google.inject.Inject;
 
 public class AppActivityMapper implements ActivityMapper {
 
-	private final ClientFactory clientFactory;
+	public interface Factory {
+
+		EventsActivity eventsActivity(EventsPlace place);
+
+		SubjectActivity subjectActivity(SubjectPlace place);
+
+	}
+
+	private final Factory factory;
 
 	@Inject
-	public AppActivityMapper(final ClientFactory clientFactory) {
-		this.clientFactory = clientFactory;
+	public AppActivityMapper(final Factory factory) {
+		this.factory = factory;
 	}
 
 	@Override
 	public Activity getActivity(final Place place) {
+
 		if (place instanceof SubjectPlace)
-			return new SubjectActivity(clientFactory);
+			return factory.subjectActivity((SubjectPlace) place);
 		else if (place instanceof EventsPlace)
-			return new EventsActivity(clientFactory);
+			return factory.eventsActivity((EventsPlace) place);
+
 		return null;
 	}
 

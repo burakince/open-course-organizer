@@ -20,6 +20,7 @@ import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.inject.client.AbstractGinModule;
+import com.google.gwt.inject.client.assistedinject.GinFactoryModuleBuilder;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryMapper;
 import com.google.inject.Inject;
@@ -35,6 +36,7 @@ public class DesktopModule extends AbstractGinModule {
 		bind(App.class).to(DesktopApp.class).in(Singleton.class);
 		bind(EventBus.class).to(SimpleEventBus.class).asEagerSingleton();
 		bind(PlaceController.class).toProvider(PlaceControllerProvider.class).in(Singleton.class);
+		install(new GinFactoryModuleBuilder().build(AppActivityMapper.Factory.class));
 		bind(ActivityMapper.class).to(AppActivityMapper.class).in(Singleton.class);
 		bind(PlaceHistoryMapper.class).to(AppPlaceHistoryMapper.class).in(Singleton.class);
 
