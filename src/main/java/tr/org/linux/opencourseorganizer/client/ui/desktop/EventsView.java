@@ -1,5 +1,7 @@
 package tr.org.linux.opencourseorganizer.client.ui.desktop;
 
+import java.util.List;
+
 import tr.org.linux.opencourseorganizer.client.Constants;
 import tr.org.linux.opencourseorganizer.client.Messages;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
@@ -13,6 +15,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
@@ -32,7 +35,7 @@ public class EventsView extends Composite implements EventsDisplay {
 
 	@UiField Button subjectButton;
 	@UiField Button eventButton;
-	@UiField Label eventLabel;
+	@UiField FlowPanel eventsPanel;
 
 	@Inject
 	public EventsView(final Messages messages, final Constants constants) {
@@ -58,22 +61,24 @@ public class EventsView extends Composite implements EventsDisplay {
 	}
 
 	@Override
-	public void loadEvent(Request<EventProxy> request) {
-
-		request.fire(new Receiver<EventProxy>() {
+	public void loadEvent(Request<List<EventProxy>> request) {
+		request.fire(new Receiver<List<EventProxy>>() {
 
 			@Override
-			public void onSuccess(EventProxy response) {
-				eventLabel.setText(response.getName());
+			public void onSuccess(List<EventProxy> response) {
+				eventsPanel.clear();
+				for (EventProxy event : response) {
+					Label label = new Label(event.getId() + " " + event.getName());
+					eventsPanel.add(label);
+				}
 			}
-
+			
 		});
 	}
 
 	private void initialize() {
 		subjectButton.setText(constants.subject());
 		eventButton.setText(constants.loadEvent());
-		eventLabel.setText(messages.salute());
 	}
 
 }

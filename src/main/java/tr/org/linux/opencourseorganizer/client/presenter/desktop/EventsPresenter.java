@@ -46,7 +46,7 @@ public class EventsPresenter implements Presenter {
 	@Override
 	public void findEvent() {
 		EventRequest request = factory.eventRequest();
-		view.loadEvent(request.findById(Long.valueOf(1)));
+		view.loadEvent(request.findAll());
 	}
 
 }

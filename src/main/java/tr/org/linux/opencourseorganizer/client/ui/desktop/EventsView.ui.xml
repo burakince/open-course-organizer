@@ -6,13 +6,10 @@
 			font-weight: bold;
 		}
 	</ui:style>
-	<g:HTMLPanel>
-		Hello
-		<br />
+	<g:VerticalPanel>
 		<g:Button ui:field="subjectButton" />
-		<br />
 		<g:Button ui:field="eventButton" />
-		<br />
-		<g:Label ui:field="eventLabel" />
-	</g:HTMLPanel>
+		<g:FlowPanel ui:field="eventsPanel">
+		</g:FlowPanel>
+	</g:VerticalPanel>
 </ui:UiBinder>

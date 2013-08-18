@@ -22,10 +22,14 @@ public class EventsActivity extends AbstractActivity {
 
 	@Override
 	public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
-		final EventsDisplay.Presenter presenter = clientFactory.getEventsPresenter();
-		presenter.setEventBus(eventBus);
-		presenter.setRequestFactory(clientFactory.getRequestFactory());
-		presenter.go(panel);
+		if (place.getEventId().equals(0L)) {
+			final EventsDisplay.Presenter presenter = clientFactory.getEventsPresenter();
+			presenter.setEventBus(eventBus);
+			presenter.setRequestFactory(clientFactory.getRequestFactory());
+			presenter.go(panel);
+		} else {
+			
+		}
 	}
 
 }

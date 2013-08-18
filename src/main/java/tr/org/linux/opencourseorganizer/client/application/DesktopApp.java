@@ -23,7 +23,7 @@ import com.google.web.bindery.event.shared.EventBus;
 public class DesktopApp implements App {
 
 	private static final Logger log = Logger.getLogger(DesktopApp.class.getName());
-	private final Place defaultPlace = new EventsPlace(null);
+	private final Place defaultPlace = new EventsPlace(0L);
 
 	private final EventBus eventBus;
 	private final PlaceController placeController;

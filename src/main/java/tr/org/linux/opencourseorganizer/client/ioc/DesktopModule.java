@@ -36,7 +36,9 @@ public class DesktopModule extends AbstractGinModule {
 		bind(App.class).to(DesktopApp.class).in(Singleton.class);
 		bind(EventBus.class).to(SimpleEventBus.class).asEagerSingleton();
 		bind(PlaceController.class).toProvider(PlaceControllerProvider.class).in(Singleton.class);
+
 		install(new GinFactoryModuleBuilder().build(AppActivityMapper.Factory.class));
+
 		bind(ActivityMapper.class).to(AppActivityMapper.class).in(Singleton.class);
 		bind(PlaceHistoryMapper.class).to(AppPlaceHistoryMapper.class).in(Singleton.class);
 

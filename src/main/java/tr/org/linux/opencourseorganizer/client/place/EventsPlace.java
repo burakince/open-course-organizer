@@ -10,21 +10,29 @@ public class EventsPlace extends Place {
 	public static class Tokenizer implements PlaceTokenizer<EventsPlace> {
 
 		public String getToken(final EventsPlace place) {
-			return place.getToken();
+			return place.getEventId() != null ? place.getEventId().toString() : "";
 		}
 
-		public EventsPlace getPlace(final String token) {
-			return new EventsPlace(token);
+		public EventsPlace getPlace(String event) {
+			if (isNull(event))
+				new EventsPlace(0L);
+			return new EventsPlace(new Long(event));
 		}
+
+		private boolean isNull(String event) {
+			return event == null || event.equals("");
+		}
+
 	}
 
-	private String token;
+	private Long eventId;
 
-	public EventsPlace(String token) {
-		this.token = token;
+	public EventsPlace(Long eventId) {
+		this.eventId = eventId;
 	}
 
-	public String getToken() {
-		return token;
+	public Long getEventId() {
+		return eventId;
 	}
+
 }

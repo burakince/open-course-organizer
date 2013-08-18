@@ -32,7 +32,7 @@ public class SubjectPresenter implements Presenter {
 
 	@Override
 	public void goEventsView() {
-		eventBus.fireEvent(new PlaceChangeEvent(new EventsPlace("Kamp 2013")));
+		eventBus.fireEvent(new PlaceChangeEvent(new EventsPlace(0L)));
 	}
 
 }
