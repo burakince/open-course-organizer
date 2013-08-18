@@ -4,7 +4,7 @@ import java.util.List;
 
 import tr.org.linux.opencourseorganizer.server.domain.Event;
 
-public interface EventDao {
+public interface EventService {
 
 	public Long countEvents();
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 import tr.org.linux.opencourseorganizer.server.domain.Event;
 
-public class EventDaoMock implements EventDao {
+public class EventDaoMock implements EventService {
 
 	private Event event;
 	private List<Event> events = new ArrayList<Event>();

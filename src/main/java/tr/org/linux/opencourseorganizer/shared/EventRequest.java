@@ -6,7 +6,7 @@ import com.google.web.bindery.requestfactory.shared.Request;
 import com.google.web.bindery.requestfactory.shared.RequestContext;
 import com.google.web.bindery.requestfactory.shared.Service;
 
-@Service(value = tr.org.linux.opencourseorganizer.server.dao.EventDao.class, locator = tr.org.linux.opencourseorganizer.server.domain.GuiceServiceLocator.class)
+@Service(value = tr.org.linux.opencourseorganizer.server.dao.EventService.class, locator = tr.org.linux.opencourseorganizer.server.domain.GuiceServiceLocator.class)
 public interface EventRequest extends RequestContext {
 
 	Request<Long> countEvents();

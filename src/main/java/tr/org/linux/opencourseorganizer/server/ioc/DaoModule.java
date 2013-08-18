@@ -1,6 +1,6 @@
 package tr.org.linux.opencourseorganizer.server.ioc;
 
-import tr.org.linux.opencourseorganizer.server.dao.EventDao;
+import tr.org.linux.opencourseorganizer.server.dao.EventService;
 import tr.org.linux.opencourseorganizer.server.dao.EventDaoMock;
 
 import com.google.inject.AbstractModule;
@@ -10,7 +10,7 @@ public class DaoModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
-		bind(EventDao.class).to(EventDaoMock.class).in(Singleton.class);
+		bind(EventService.class).to(EventDaoMock.class).in(Singleton.class);
 	}
 
 }
