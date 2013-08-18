@@ -7,13 +7,15 @@ import tr.org.linux.opencourseorganizer.server.domain.Event;
 
 public class EventDaoImpl implements EventDao {
 
-	private Event event = new Event();
+	private Event event;
 	private List<Event> events = new ArrayList<Event>();
 
 	public EventDaoImpl() {
-		event.setId(new Long(1));
-		event.setName("Kamp2013");
+		event = new Event(1L, "AB 2012");
 		events.add(event);
+		events.add(new Event(2L, "Kamp 2012"));
+		events.add(new Event(3L, "AB 2013"));
+		events.add(new Event(4L, "Kamp 2013"));
 	}
 
 	@Override

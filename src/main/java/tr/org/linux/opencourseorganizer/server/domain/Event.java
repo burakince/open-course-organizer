@@ -28,6 +28,11 @@ public class Event implements Identifiable, Versionable {
 
 	public Event() {}
 
+	public Event(Long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	@Override
 	public Long getId() {
 		return id;
