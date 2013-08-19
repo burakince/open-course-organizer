@@ -2,6 +2,7 @@ package tr.org.linux.opencourseorganizer.client.activity;
 
 import tr.org.linux.opencourseorganizer.client.ClientFactory;
 import tr.org.linux.opencourseorganizer.client.place.EventsPlace;
+import tr.org.linux.opencourseorganizer.client.ui.EventDetailDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
@@ -28,7 +29,10 @@ public class EventsActivity extends AbstractActivity {
 			presenter.setRequestFactory(clientFactory.getRequestFactory());
 			presenter.go(panel);
 		} else {
-			
+			final EventDetailDisplay.Presenter presenter = clientFactory.getEventDetailPresenter();
+			presenter.setEventBus(eventBus);
+			presenter.setRequestFactory(clientFactory.getRequestFactory());
+			presenter.go(panel);
 		}
 	}
 
