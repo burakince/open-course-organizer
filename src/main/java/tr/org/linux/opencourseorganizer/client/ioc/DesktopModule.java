@@ -6,12 +6,15 @@ import tr.org.linux.opencourseorganizer.client.activity.AppActivityMapper;
 import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.application.DesktopApp;
 import tr.org.linux.opencourseorganizer.client.place.AppPlaceHistoryMapper;
+import tr.org.linux.opencourseorganizer.client.presenter.desktop.EventDetailPresenter;
 import tr.org.linux.opencourseorganizer.client.presenter.desktop.EventsPresenter;
 import tr.org.linux.opencourseorganizer.client.presenter.desktop.ShellPresenter;
 import tr.org.linux.opencourseorganizer.client.presenter.desktop.SubjectPresenter;
+import tr.org.linux.opencourseorganizer.client.ui.EventDetailDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.ShellDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.desktop.EventDetailView;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.EventsView;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.ShellView;
 import tr.org.linux.opencourseorganizer.client.ui.desktop.SubjectView;
@@ -47,12 +50,16 @@ public class DesktopModule extends AbstractGinModule {
 		bind(Messages.class).in(Singleton.class);
 		bind(Constants.class).in(Singleton.class);
 
+		// Views
 		bind(ShellDisplay.class).to(ShellView.class).asEagerSingleton();
 		bind(EventsDisplay.class).to(EventsView.class).asEagerSingleton();
+		bind(EventDetailDisplay.class).to(EventDetailView.class).asEagerSingleton();
 		bind(SubjectDisplay.class).to(SubjectView.class).asEagerSingleton();
 
+		// Presenters
 		bind(ShellDisplay.Presenter.class).to(ShellPresenter.class).in(Singleton.class);
 		bind(EventsDisplay.Presenter.class).to(EventsPresenter.class);
+		bind(EventDetailDisplay.Presenter.class).to(EventDetailPresenter.class);
 		bind(SubjectDisplay.Presenter.class).to(SubjectPresenter.class);
 	}
 
