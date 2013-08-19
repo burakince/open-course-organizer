@@ -19,9 +19,11 @@ public class EventDetailView extends Composite implements EventDetailDisplay {
 
 	private static EventDetailViewUiBinder uiBinder = GWT.create(EventDetailViewUiBinder.class);
 
+	@SuppressWarnings("unused")
 	private Presenter presenter;
 	@SuppressWarnings("unused")
 	private final Messages messages;
+	@SuppressWarnings("unused")
 	private final Constants constants;
 
 	@Inject

@@ -4,9 +4,10 @@ import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory.EventRequest;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.event.shared.EventBus;
 
-public interface EventDetailDisplay {
+public interface EventDetailDisplay extends IsWidget {
 
 	public interface Presenter {
 
