@@ -1,6 +1,7 @@
 package tr.org.linux.opencourseorganizer.client;
 
 import tr.org.linux.opencourseorganizer.client.application.App;
+import tr.org.linux.opencourseorganizer.client.ui.EventDetailDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
@@ -26,6 +27,8 @@ public interface ClientFactory extends Ginjector {
 	AppRequestFactory getRequestFactory();
 
 	EventsDisplay.Presenter getEventsPresenter();
+
+	EventDetailDisplay.Presenter getEventDetailPresenter();
 
 	SubjectDisplay.Presenter getSubjectPresenter();
 

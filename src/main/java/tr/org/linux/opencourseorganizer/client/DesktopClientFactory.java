@@ -2,6 +2,7 @@ package tr.org.linux.opencourseorganizer.client;
 
 import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.ioc.DesktopInjector;
+import tr.org.linux.opencourseorganizer.client.ui.EventDetailDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
@@ -49,6 +50,11 @@ public class DesktopClientFactory implements ClientFactory {
 	@Override
 	public EventsDisplay.Presenter getEventsPresenter() {
 		return injector.getEventsPresenter();
+	}
+
+	@Override
+	public EventDetailDisplay.Presenter getEventDetailPresenter() {
+		return injector.getEventDetailPresenter();
 	}
 
 	@Override

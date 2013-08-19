@@ -2,6 +2,7 @@ package tr.org.linux.opencourseorganizer.client;
 
 import tr.org.linux.opencourseorganizer.client.application.App;
 import tr.org.linux.opencourseorganizer.client.exception.UnsupportedClientException;
+import tr.org.linux.opencourseorganizer.client.ui.EventDetailDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
@@ -45,6 +46,11 @@ public class MobileClientFactory implements ClientFactory {
 
 	@Override
 	public EventsDisplay.Presenter getEventsPresenter() {
+		throw new UnsupportedClientException();
+	}
+
+	@Override
+	public EventDetailDisplay.Presenter getEventDetailPresenter() {
 		throw new UnsupportedClientException();
 	}
 
