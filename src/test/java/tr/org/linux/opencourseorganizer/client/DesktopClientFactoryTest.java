@@ -44,8 +44,18 @@ public class DesktopClientFactoryTest {
 	}
 
 	@Test
+	public void clientFactoryRequestFactoryShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getRequestFactory());
+	}
+
+	@Test
 	public void clientFactoryEventsPresenterShouldNotBeNull() throws Exception {
 		assertNotNull(clientFactory.getEventsPresenter());
+	}
+
+	@Test
+	public void clientFactoryEventDetailPresenterShouldNotBeNull() throws Exception {
+		assertNotNull(clientFactory.getEventDetailPresenter());
 	}
 
 	@Test

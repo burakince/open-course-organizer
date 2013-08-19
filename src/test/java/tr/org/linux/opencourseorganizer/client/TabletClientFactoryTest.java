@@ -40,8 +40,18 @@ public class TabletClientFactoryTest {
 	}
 
 	@Test(expected = UnsupportedClientException.class)
+	public void clientFactoryRequestFactoryShouldThrowUnsupportedClientException() throws Exception {
+		clientFactory.getRequestFactory();
+	}
+
+	@Test(expected = UnsupportedClientException.class)
 	public void clientFactoryEventsPresenterShouldThrowUnsupportedClientException() throws Exception {
 		clientFactory.getEventsPresenter();
+	}
+
+	@Test(expected = UnsupportedClientException.class)
+	public void clientFactoryEventDetailPresenterShouldThrowUnsupportedClientException() throws Exception {
+		clientFactory.getEventDetailPresenter();
 	}
 
 	@Test(expected = UnsupportedClientException.class)
