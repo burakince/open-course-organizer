@@ -30,6 +30,7 @@ public class EventsView extends Composite implements EventsDisplay {
 	private static EventViewUiBinder uiBinder = GWT.create(EventViewUiBinder.class);
 
 	private Presenter presenter;
+	@SuppressWarnings("unused")
 	private final Messages messages;
 	private final Constants constants;
 
