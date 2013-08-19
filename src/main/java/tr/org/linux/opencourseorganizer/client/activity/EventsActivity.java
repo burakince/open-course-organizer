@@ -32,6 +32,7 @@ public class EventsActivity extends AbstractActivity {
 			final EventDetailDisplay.Presenter presenter = clientFactory.getEventDetailPresenter();
 			presenter.setEventBus(eventBus);
 			presenter.setRequestFactory(clientFactory.getRequestFactory());
+			presenter.setEventId(place.getEventId());
 			presenter.go(panel);
 		}
 	}
