@@ -1,7 +1,7 @@
 package tr.org.linux.opencourseorganizer.client.ui;
 
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
-import tr.org.linux.opencourseorganizer.shared.AppRequestFactory.EventRequest;
+import tr.org.linux.opencourseorganizer.shared.EventProxy;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -15,18 +15,14 @@ public interface EventDetailDisplay extends IsWidget {
 
 		void setEventBus(EventBus eventBus);
 
-		void setEventId(Long eventId);
-
 		void setRequestFactory(AppRequestFactory factory);
 
-		void goSubjectView();
-
-		void findEvent();
+		void loadEvent(Long eventId);
 
 	}
 
 	void setPresenter(Presenter presenter);
 
-	void loadEvent(EventRequest request, Long eventId);
+	void loadEvent(EventProxy response);
 
 }

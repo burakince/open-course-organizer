@@ -7,9 +7,13 @@
 		}
 	</ui:style>
 	<g:VerticalPanel>
-		<g:Button ui:field="subjectButton" />
-		<g:Button ui:field="eventButton" />
-		<g:FlowPanel ui:field="eventsPanel">
-		</g:FlowPanel>
+		<g:HorizontalPanel>
+			<g:Label ui:field="nameLabel" />
+			<g:Label ui:field="eventName" />
+		</g:HorizontalPanel>
+		<g:HorizontalPanel>
+			<g:Label ui:field="locationLabel" />
+			<g:Label ui:field="eventLocation" />
+		</g:HorizontalPanel>
 	</g:VerticalPanel>
 </ui:UiBinder>

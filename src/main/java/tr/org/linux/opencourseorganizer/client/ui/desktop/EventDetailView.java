@@ -1,16 +1,18 @@
 package tr.org.linux.opencourseorganizer.client.ui.desktop;
 
-import com.google.gwt.core.shared.GWT;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiTemplate;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Widget;
-import com.google.inject.Inject;
-
 import tr.org.linux.opencourseorganizer.client.Constants;
 import tr.org.linux.opencourseorganizer.client.Messages;
 import tr.org.linux.opencourseorganizer.client.ui.EventDetailDisplay;
-import tr.org.linux.opencourseorganizer.shared.AppRequestFactory.EventRequest;
+import tr.org.linux.opencourseorganizer.shared.EventProxy;
+
+import com.google.gwt.core.shared.GWT;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiTemplate;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 
 public class EventDetailView extends Composite implements EventDetailDisplay {
 
@@ -23,8 +25,12 @@ public class EventDetailView extends Composite implements EventDetailDisplay {
 	private Presenter presenter;
 	@SuppressWarnings("unused")
 	private final Messages messages;
-	@SuppressWarnings("unused")
 	private final Constants constants;
+
+	@UiField Label nameLabel;
+	@UiField Label eventName;
+	@UiField Label locationLabel;
+	@UiField Label eventLocation;
 
 	@Inject
 	public EventDetailView(final Messages messages, final Constants constants) {
@@ -40,14 +46,14 @@ public class EventDetailView extends Composite implements EventDetailDisplay {
 	}
 
 	@Override
-	public void loadEvent(EventRequest request, Long eventId) {
-		// TODO Auto-generated method stub
-
+	public void loadEvent(EventProxy response) {
+		eventName.setText(response.getName());
+		eventLocation.setText(response.getLocation());
 	}
 
 	private void initialize() {
-		// TODO Auto-generated method stub
-		
+		nameLabel.setText(constants.eventName());
+		locationLabel.setText(constants.eventLocation());
 	}
 
 }

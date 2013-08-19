@@ -13,6 +13,10 @@ public interface EventProxy extends EntityProxy {
 
 	void setName(String name);
 
+	String getLocation();
+
+	void setLocation(String location);
+
 //	@Override
 //	public EntityProxyId<EventProxy> stableId();
 

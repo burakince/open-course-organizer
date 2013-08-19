@@ -11,11 +11,11 @@ public class MockDao implements Dao {
 	private List<Event> events = new ArrayList<Event>();
 
 	public MockDao() {
-		event = new Event(1L, "AB 2012");
+		event = new Event(1L, "AB 2012", "Uşak Üniversitesi");
 		events.add(event);
-		events.add(new Event(2L, "Kamp 2012"));
-		events.add(new Event(3L, "AB 2013"));
-		events.add(new Event(4L, "Kamp 2013"));
+		events.add(new Event(2L, "Kamp 2012", "Bolu Abant İzzet Baysal Üniversitesi"));
+		events.add(new Event(3L, "AB 2013", "Akdeniz Üniversitesi"));
+		events.add(new Event(4L, "Kamp 2013", "Bolu Abant İzzet Baysal Üniversitesi"));
 	}
 
 	@Override
