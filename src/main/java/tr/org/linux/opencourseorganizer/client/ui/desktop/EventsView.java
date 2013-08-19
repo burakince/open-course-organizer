@@ -9,18 +9,17 @@ import tr.org.linux.opencourseorganizer.shared.EventProxy;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
-import com.google.web.bindery.requestfactory.shared.Receiver;
-import com.google.web.bindery.requestfactory.shared.Request;
 
 public class EventsView extends Composite implements EventsDisplay {
 
@@ -32,10 +31,9 @@ public class EventsView extends Composite implements EventsDisplay {
 	private Presenter presenter;
 	@SuppressWarnings("unused")
 	private final Messages messages;
+	@SuppressWarnings("unused")
 	private final Constants constants;
 
-	@UiField Button subjectButton;
-	@UiField Button eventButton;
 	@UiField FlowPanel eventsPanel;
 
 	@Inject
@@ -51,35 +49,31 @@ public class EventsView extends Composite implements EventsDisplay {
 		this.presenter = presenter;
 	}
 
-	@UiHandler("subjectButton")
-	void onClickSubjectButton(ClickEvent e) {
-		presenter.goSubjectView();
-	}
-
-	@UiHandler("eventButton")
-	void onClickEventsButton(ClickEvent e) {
-		presenter.findEvent();
-	}
-
 	@Override
-	public void loadEvent(Request<List<EventProxy>> request) {
-		request.fire(new Receiver<List<EventProxy>>() {
+	public void loadEvent(List<EventProxy> response) {
+		eventsPanel.clear();
 
-			@Override
-			public void onSuccess(List<EventProxy> response) {
-				eventsPanel.clear();
-				for (EventProxy event : response) {
-					Label label = new Label(event.getId() + " " + event.getName());
-					eventsPanel.add(label);
+		for (final EventProxy event : response) {
+			HorizontalPanel panel = new HorizontalPanel();
+
+			Label label = new Label(event.getName());
+			panel.add(label);
+
+			Button button = new Button(" --> ");
+			button.addClickHandler(new ClickHandler() {
+				
+				@Override
+				public void onClick(ClickEvent e) {
+					presenter.goSubjectView(event.getId());
 				}
-			}
-			
-		});
+			});
+			panel.add(button);
+
+			eventsPanel.add(panel);
+		}
 	}
 
 	private void initialize() {
-		subjectButton.setText(constants.subject());
-		eventButton.setText(constants.loadEvent());
 	}
 
 }

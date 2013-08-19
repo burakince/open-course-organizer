@@ -1,17 +1,20 @@
 package tr.org.linux.opencourseorganizer.client.presenter.desktop;
 
-import tr.org.linux.opencourseorganizer.client.place.SubjectPlace;
+import java.util.List;
+
+import tr.org.linux.opencourseorganizer.client.place.EventsPlace;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
-import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay.Presenter;
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory.EventRequest;
+import tr.org.linux.opencourseorganizer.shared.EventProxy;
 
 import com.google.gwt.place.shared.PlaceChangeEvent;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
+import com.google.web.bindery.requestfactory.shared.Receiver;
 
-public class EventsPresenter implements Presenter {
+public class EventsPresenter implements EventsDisplay.Presenter {
 
 	private final EventsDisplay view;
 	private EventBus eventBus;
@@ -36,17 +39,24 @@ public class EventsPresenter implements Presenter {
 	@Override
 	public void go(AcceptsOneWidget panel) {
 		panel.setWidget(view);
+		loadEvents();
 	}
 
 	@Override
-	public void goSubjectView() {
-		eventBus.fireEvent(new PlaceChangeEvent(new SubjectPlace("Linux Sistem Yönetimi (1. Düzey)")));
+	public void goSubjectView(Long eventId) {
+		eventBus.fireEvent(new PlaceChangeEvent(new EventsPlace(eventId)));
 	}
 
-	@Override
-	public void findEvent() {
+	private void loadEvents() {
 		EventRequest request = factory.eventRequest();
-		view.loadEvent(request.findAll());
+
+		request.findAll().fire(new Receiver<List<EventProxy>>() {
+			@Override
+			public void onSuccess(List<EventProxy> response) {
+				view.loadEvent(response);
+			}
+			
+		});
 	}
 
 }

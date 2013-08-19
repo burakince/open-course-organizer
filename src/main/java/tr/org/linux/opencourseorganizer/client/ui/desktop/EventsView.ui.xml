@@ -7,8 +7,6 @@
 		}
 	</ui:style>
 	<g:VerticalPanel>
-		<g:Button ui:field="subjectButton" />
-		<g:Button ui:field="eventButton" />
 		<g:FlowPanel ui:field="eventsPanel">
 		</g:FlowPanel>
 	</g:VerticalPanel>

@@ -8,7 +8,6 @@ import tr.org.linux.opencourseorganizer.shared.EventProxy;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.event.shared.EventBus;
-import com.google.web.bindery.requestfactory.shared.Request;
 
 public interface EventsDisplay extends IsWidget {
 
@@ -20,14 +19,12 @@ public interface EventsDisplay extends IsWidget {
 
 		void setRequestFactory(AppRequestFactory factory);
 
-		void goSubjectView();
-
-		void findEvent();
+		void goSubjectView(Long eventId);
 
 	}
 
 	void setPresenter(Presenter presenter);
 
-	void loadEvent(Request<List<EventProxy>> request);
+	void loadEvent(List<EventProxy> response);
 
 }
