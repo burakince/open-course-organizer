@@ -1,7 +1,10 @@
 package tr.org.linux.opencourseorganizer.client.ui;
 
+import java.util.List;
+
 import tr.org.linux.opencourseorganizer.shared.AppRequestFactory;
 import tr.org.linux.opencourseorganizer.shared.EventProxy;
+import tr.org.linux.opencourseorganizer.shared.SubjectProxy;
 
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.IsWidget;
@@ -19,10 +22,14 @@ public interface EventDetailDisplay extends IsWidget {
 
 		void loadEvent(Long eventId);
 
+		void goSubjectView(Long subjectId);
+
 	}
 
 	void setPresenter(Presenter presenter);
 
 	void loadEvent(EventProxy response);
+
+	void loadSubjects(List<SubjectProxy> response);
 
 }

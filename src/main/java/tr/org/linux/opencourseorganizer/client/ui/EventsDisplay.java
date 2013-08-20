@@ -19,7 +19,7 @@ public interface EventsDisplay extends IsWidget {
 
 		void setRequestFactory(AppRequestFactory factory);
 
-		void goSubjectView(Long eventId);
+		void goEventDetailView(Long eventId);
 
 	}
 

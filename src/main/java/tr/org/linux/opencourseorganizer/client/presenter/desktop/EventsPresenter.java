@@ -43,7 +43,7 @@ public class EventsPresenter implements EventsDisplay.Presenter {
 	}
 
 	@Override
-	public void goSubjectView(Long eventId) {
+	public void goEventDetailView(Long eventId) {
 		eventBus.fireEvent(new PlaceChangeEvent(new EventsPlace(eventId)));
 	}
 
@@ -55,7 +55,6 @@ public class EventsPresenter implements EventsDisplay.Presenter {
 			public void onSuccess(List<EventProxy> response) {
 				view.loadEvent(response);
 			}
-			
 		});
 	}
 

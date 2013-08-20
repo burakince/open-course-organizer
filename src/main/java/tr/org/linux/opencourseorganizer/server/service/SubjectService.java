@@ -12,6 +12,8 @@ public interface SubjectService {
 
 	public Subject findById(Long id);
 
+	public List<Subject> findByEventId(Long eventId);
+
 	public void save(Subject subject);
 
 }

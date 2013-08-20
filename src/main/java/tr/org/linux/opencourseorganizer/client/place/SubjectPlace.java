@@ -10,22 +10,29 @@ public class SubjectPlace extends Place {
 	public static class Tokenizer implements PlaceTokenizer<SubjectPlace> {
 
 		public String getToken(final SubjectPlace place) {
-			return place.getToken();
+			return place.getSubjectId() != null ? place.getSubjectId().toString() : "";
 		}
 
-		public SubjectPlace getPlace(final String token) {
-			return new SubjectPlace(token);
+		public SubjectPlace getPlace(final String subject) {
+			if (isNull(subject))
+				new SubjectPlace(0L);
+			return new SubjectPlace(new Long(subject));
 		}
+
+		private boolean isNull(final String event) {
+			return event == null || event.equals("");
+		}
+
 	}
 
-	private String token;
+	private Long subjectId;
 
-	public SubjectPlace(String token) {
-		this.token = token;
+	public SubjectPlace(final Long subjectId) {
+		this.subjectId = subjectId;
 	}
 
-	public String getToken() {
-		return token;
+	public Long getSubjectId() {
+		return subjectId;
 	}
 
 }

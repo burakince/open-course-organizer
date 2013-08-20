@@ -1,6 +1,7 @@
 package tr.org.linux.opencourseorganizer.server.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import tr.org.linux.opencourseorganizer.server.domain.Event;
@@ -8,19 +9,30 @@ import tr.org.linux.opencourseorganizer.server.domain.Subject;
 
 public class MockDao implements Dao {
 
-	private Event event;
 	private List<Event> events = new ArrayList<Event>();
-	private Subject subject;
 	private List<Subject> subjects = new ArrayList<Subject>();
 
 	public MockDao() {
-		event = new Event(1L, "AB 2012", "Uşak Üniversitesi");
-		events.add(event);
+		events.add(new Event(1L, "AB 2012", "Uşak Üniversitesi"));
 		events.add(new Event(2L, "Kamp 2012", "Bolu Abant İzzet Baysal Üniversitesi"));
 		events.add(new Event(3L, "AB 2013", "Akdeniz Üniversitesi"));
 		events.add(new Event(4L, "Kamp 2013", "Bolu Abant İzzet Baysal Üniversitesi"));
-		subject = new Subject();
-		subjects.add(subject);
+		subjects.add(new Subject(1L, "Kurs 1", new Date(), 1L));
+		subjects.add(new Subject(2L, "Kurs 2", new Date(), 2L));
+		subjects.add(new Subject(3L, "Kurs 3", new Date(), 3L));
+		subjects.add(new Subject(4L, "Kurs 4", new Date(), 4L));
+		subjects.add(new Subject(5L, "Kurs 5", new Date(), 1L));
+		subjects.add(new Subject(6L, "Kurs 6", new Date(), 3L));
+		subjects.add(new Subject(7L, "Kurs 7", new Date(), 4L));
+		subjects.add(new Subject(8L, "Kurs 8", new Date(), 2L));
+		subjects.add(new Subject(9L, "Kurs 9", new Date(), 2L));
+		subjects.add(new Subject(10L, "Kurs 10", new Date(), 4L));
+		subjects.add(new Subject(11L, "Kurs 11", new Date(), 1L));
+		subjects.add(new Subject(12L, "Kurs 12", new Date(), 3L));
+		subjects.add(new Subject(13L, "Kurs 13", new Date(), 4L));
+		subjects.add(new Subject(14L, "Kurs 14", new Date(), 3L));
+		subjects.add(new Subject(15L, "Kurs 15", new Date(), 2L));
+		subjects.add(new Subject(15L, "Kurs 16", new Date(), 1L));
 	}
 
 	@Override
@@ -38,7 +50,7 @@ public class MockDao implements Dao {
 		for (Event event : events)
 			if (event.getId().equals(id))
 				return event;
-		return this.event;
+		return new Event();
 	}
 
 	@Override
@@ -61,7 +73,16 @@ public class MockDao implements Dao {
 		for (Subject subject : subjects)
 			if (subject.getId().equals(id))
 				return subject;
-		return this.subject;
+		return new Subject();
+	}
+
+	@Override
+	public List<Subject> findSubjectsByEventId(Long eventId) {
+		List<Subject> subjects = new ArrayList<Subject>();
+		for (Subject subject : this.subjects)
+			if (subject.getEventId().equals(eventId))
+				subjects.add(subject);
+		return subjects;
 	}
 
 	@Override

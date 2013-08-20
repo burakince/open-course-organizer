@@ -15,5 +15,7 @@
 			<g:Label ui:field="locationLabel" />
 			<g:Label ui:field="eventLocation" />
 		</g:HorizontalPanel>
+		<g:VerticalPanel ui:field="subjectsPanel">
+		</g:VerticalPanel>
 	</g:VerticalPanel>
 </ui:UiBinder>

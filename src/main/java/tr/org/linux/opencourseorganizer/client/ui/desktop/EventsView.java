@@ -61,10 +61,10 @@ public class EventsView extends Composite implements EventsDisplay {
 
 			Button button = new Button(" --> ");
 			button.addClickHandler(new ClickHandler() {
-				
+
 				@Override
 				public void onClick(ClickEvent e) {
-					presenter.goSubjectView(event.getId());
+					presenter.goEventDetailView(event.getId());
 				}
 			});
 			panel.add(button);

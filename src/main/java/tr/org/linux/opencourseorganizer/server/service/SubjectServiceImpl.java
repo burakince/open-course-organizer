@@ -32,6 +32,11 @@ public class SubjectServiceImpl implements SubjectService {
 	}
 
 	@Override
+	public List<Subject> findByEventId(Long eventId) {
+		return dao.findSubjectsByEventId(eventId);
+	}
+
+	@Override
 	public void save(Subject subject) {
 		dao.saveSubject(subject);
 	}

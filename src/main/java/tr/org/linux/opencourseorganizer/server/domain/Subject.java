@@ -16,6 +16,13 @@ public class Subject implements Identifiable, Versionable {
 
 	public Subject() {}
 
+	public Subject(Long id, String name, Date signUpDeadline, Long eventId) {
+		this.id = id;
+		this.name = name;
+		this.signUpDeadline = signUpDeadline;
+		this.eventId = eventId;
+	}
+
 	@Override
 	public Long getId() {
 		return id;

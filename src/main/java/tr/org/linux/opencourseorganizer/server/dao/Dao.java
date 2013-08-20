@@ -21,6 +21,8 @@ public interface Dao {
 
 	Subject findSubjectById(Long id);
 
+	List<Subject> findSubjectsByEventId(Long eventId);
+
 	void saveSubject(Subject subject);
 
 }

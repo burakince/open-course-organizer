@@ -5,13 +5,9 @@ import tr.org.linux.opencourseorganizer.client.Messages;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
@@ -24,7 +20,9 @@ public class SubjectView extends Composite implements SubjectDisplay {
 
 	private static HomeViewUiBinder uiBinder = GWT.create(HomeViewUiBinder.class);
 
+	@SuppressWarnings("unused")
 	private Presenter presenter;
+	@SuppressWarnings("unused")
 	private final Messages messages;
 	private final Constants constants;
 

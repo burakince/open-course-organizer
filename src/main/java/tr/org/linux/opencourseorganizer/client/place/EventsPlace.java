@@ -13,13 +13,13 @@ public class EventsPlace extends Place {
 			return place.getEventId() != null ? place.getEventId().toString() : "";
 		}
 
-		public EventsPlace getPlace(String event) {
+		public EventsPlace getPlace(final String event) {
 			if (isNull(event))
 				new EventsPlace(0L);
 			return new EventsPlace(new Long(event));
 		}
 
-		private boolean isNull(String event) {
+		private boolean isNull(final String event) {
 			return event == null || event.equals("");
 		}
 
@@ -27,7 +27,7 @@ public class EventsPlace extends Place {
 
 	private Long eventId;
 
-	public EventsPlace(Long eventId) {
+	public EventsPlace(final Long eventId) {
 		this.eventId = eventId;
 	}
 

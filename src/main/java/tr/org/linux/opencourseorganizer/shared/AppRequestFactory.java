@@ -26,6 +26,23 @@ public interface AppRequestFactory extends RequestFactory {
 
 	}
 
+	@Service(value = tr.org.linux.opencourseorganizer.server.service.SubjectService.class, locator = tr.org.linux.opencourseorganizer.server.domain.GuiceServiceLocator.class)
+	public interface SubjectRequest extends RequestContext {
+
+		Request<Long> count();
+
+		Request<List<SubjectProxy>> findAll();
+
+		Request<SubjectProxy> findById(Long id);
+
+		Request<List<SubjectProxy>> findByEventId(Long eventId);
+
+		Request<Void> save(SubjectProxy subject);
+
+	}
+
 	EventRequest eventRequest();
+
+	SubjectRequest subjectRequest();
 
 }
