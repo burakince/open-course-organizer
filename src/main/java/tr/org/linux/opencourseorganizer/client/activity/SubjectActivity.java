@@ -24,6 +24,8 @@ public class SubjectActivity extends AbstractActivity {
 	public void start(final AcceptsOneWidget panel, final EventBus eventBus) {
 		final SubjectDisplay.Presenter presenter = clientFactory.getSubjectPresenter();
 		presenter.setEventBus(eventBus);
+		presenter.setRequestFactory(clientFactory.getRequestFactory());
+		presenter.loadSubject(place.getSubjectId());
 		presenter.go(panel);
 	}
 

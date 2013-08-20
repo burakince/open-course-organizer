@@ -3,6 +3,7 @@ package tr.org.linux.opencourseorganizer.client.ui.desktop;
 import tr.org.linux.opencourseorganizer.client.Constants;
 import tr.org.linux.opencourseorganizer.client.Messages;
 import tr.org.linux.opencourseorganizer.client.ui.SubjectDisplay;
+import tr.org.linux.opencourseorganizer.shared.SubjectProxy;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -40,6 +41,11 @@ public class SubjectView extends Composite implements SubjectDisplay {
 	@Override
 	public void setPresenter(Presenter presenter) {
 		this.presenter = presenter;
+	}
+
+	@Override
+	public void loadSubject(SubjectProxy response) {
+		subjectName.setText(response.getName());
 	}
 
 	private void initialize() {
