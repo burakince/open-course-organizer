@@ -18,6 +18,4 @@ public interface SubjectDisplay extends IsWidget {
 
 	void setPresenter(Presenter presenter);
 
-	void showAlert();
-
 }
