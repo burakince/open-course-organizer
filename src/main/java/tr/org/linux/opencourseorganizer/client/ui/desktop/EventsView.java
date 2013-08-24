@@ -1,24 +1,25 @@
 package tr.org.linux.opencourseorganizer.client.ui.desktop;
 
-import java.util.List;
-
 import tr.org.linux.opencourseorganizer.client.Constants;
 import tr.org.linux.opencourseorganizer.client.Messages;
 import tr.org.linux.opencourseorganizer.client.ui.EventsDisplay;
+import tr.org.linux.opencourseorganizer.client.ui.component.EventCell;
+import tr.org.linux.opencourseorganizer.client.ui.component.EventPager;
+import tr.org.linux.opencourseorganizer.client.ui.resource.Resources;
 import tr.org.linux.opencourseorganizer.shared.EventProxy;
 
 import com.google.gwt.core.shared.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
-import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.cellview.client.CellList;
+import com.google.gwt.user.cellview.client.HasKeyboardPagingPolicy.KeyboardPagingPolicy;
+import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.view.client.SelectionChangeEvent;
+import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.inject.Inject;
 
 public class EventsView extends Composite implements EventsDisplay {
@@ -34,7 +35,10 @@ public class EventsView extends Composite implements EventsDisplay {
 	@SuppressWarnings("unused")
 	private final Constants constants;
 
+	@UiField EventPager eventPagerPanel;
 	@UiField FlowPanel eventsPanel;
+
+	private CellList<EventProxy> cellList;
 
 	@Inject
 	public EventsView(final Messages messages, final Constants constants) {
@@ -50,30 +54,29 @@ public class EventsView extends Composite implements EventsDisplay {
 	}
 
 	@Override
-	public void loadEvent(List<EventProxy> response) {
-		eventsPanel.clear();
-
-		for (final EventProxy event : response) {
-			HorizontalPanel panel = new HorizontalPanel();
-
-			Label label = new Label(event.getName());
-			panel.add(label);
-
-			Button button = new Button(" --> ");
-			button.addClickHandler(new ClickHandler() {
-
-				@Override
-				public void onClick(ClickEvent e) {
-					presenter.goEventDetailView(event.getId());
-				}
-			});
-			panel.add(button);
-
-			eventsPanel.add(panel);
-		}
+	public CellList<EventProxy> getCellList() {
+		return cellList;
 	}
 
 	private void initialize() {
+		Resources resources = GWT.create(Resources.class);
+		EventCell eventCell = new EventCell(resources.tux());
+		cellList = new CellList<EventProxy>(eventCell);
+		cellList.setPageSize(10);
+		cellList.setKeyboardPagingPolicy(KeyboardPagingPolicy.INCREASE_RANGE);
+		cellList.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.BOUND_TO_SELECTION);
+
+		final SingleSelectionModel<EventProxy> selectionModel = new SingleSelectionModel<EventProxy>();
+		cellList.setSelectionModel(selectionModel);
+		selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
+
+			@Override
+			public void onSelectionChange(SelectionChangeEvent event) {
+				presenter.goEventDetailView(selectionModel.getSelectedObject().getId());
+			}
+		});
+
+		eventPagerPanel.setDisplay(cellList);
 	}
 
 }

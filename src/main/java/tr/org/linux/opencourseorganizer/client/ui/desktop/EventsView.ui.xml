@@ -1,12 +1,17 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:c="urn:import:tr.org.linux.opencourseorganizer.client.ui.component">
 	<ui:style>
-		.important {
-			font-weight: bold;
+		.scrollable {
+			height: 400px;
+			width: 800px;
+			border: 1px solid #ccc;
+			text-align: left;
 		}
 	</ui:style>
 	<g:VerticalPanel>
+		<c:EventPager addStyleNames='{style.scrollable}' ui:field="eventPagerPanel" />
 		<g:FlowPanel ui:field="eventsPanel">
 		</g:FlowPanel>
 	</g:VerticalPanel>
