@@ -20,13 +20,12 @@ public class EventCell extends AbstractCell<EventProxy> {
 		if (value == null)
 			return;
 
-		sb.appendHtmlConstant("<table>");
-
-		sb.appendHtmlConstant("<tr><td rowspan='3'>");
+		sb.appendHtmlConstant("<table border='0' width='100%'>");
+		sb.appendHtmlConstant("<tr><td rowspan='3' width='20%'>");
 		sb.appendHtmlConstant(imageHtml);
-		sb.appendHtmlConstant("</td><td style='font-size:20px;'>");
+		sb.appendHtmlConstant("</td><td width='60%' style='font-size:20px;'>");
 		sb.appendEscaped(value.getName());
-		sb.appendHtmlConstant("</td><td>");
+		sb.appendHtmlConstant("</td><td width='20%'>");
 		sb.appendEscaped("17-31 Ağustos 2013");
 		sb.appendHtmlConstant("</td></tr><tr><td>");
 		sb.appendEscaped(value.getLocation());
