@@ -1,11 +1,17 @@
 package tr.org.linux.opencourseorganizer.client.ui.component;
 
+import com.google.gwt.dom.client.Style.Overflow;
+import com.google.gwt.event.dom.client.MouseOutEvent;
+import com.google.gwt.event.dom.client.MouseOutHandler;
+import com.google.gwt.event.dom.client.MouseOverEvent;
+import com.google.gwt.event.dom.client.MouseOverHandler;
 import com.google.gwt.event.dom.client.ScrollEvent;
 import com.google.gwt.event.dom.client.ScrollHandler;
 import com.google.gwt.user.cellview.client.AbstractPager;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.HasRows;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 
 public class EventPager extends AbstractPager {
 
@@ -19,6 +25,8 @@ public class EventPager extends AbstractPager {
 	public EventPager() {
 		initWidget(scrollable);
 		scrollable.getElement().setTabIndex(-1);
+		setHideScrollBar(true);
+
 		scrollable.addScrollHandler(new ScrollHandler() {
 
 			@Override
@@ -42,6 +50,22 @@ public class EventPager extends AbstractPager {
 				}
 			}
 		});
+
+		this.addMouseOverHandler(new MouseOverHandler() {
+
+			@Override
+			public void onMouseOver(MouseOverEvent event) {
+				setHideScrollBar(false);
+			}
+		});
+
+		this.addMouseOutHandler(new MouseOutHandler() {
+
+			@Override
+			public void onMouseOut(MouseOutEvent event) {
+				setHideScrollBar(true);
+			}
+		});
 	}
 
 	public int getIncrementSize() {
@@ -62,6 +86,18 @@ public class EventPager extends AbstractPager {
 
 	@Override
 	protected void onRangeOrRowCountChanged() {
+	}
+
+	private HandlerRegistration addMouseOverHandler(MouseOverHandler handler) {
+		return addDomHandler(handler, MouseOverEvent.getType());
+	}
+
+	private HandlerRegistration addMouseOutHandler(MouseOutHandler handler) {
+		return addDomHandler(handler, MouseOutEvent.getType());
+	}
+
+	private void setHideScrollBar(boolean value) {
+		scrollable.getElement().getStyle().setOverflow(value ? Overflow.HIDDEN : Overflow.AUTO);
 	}
 
 }
