@@ -24,6 +24,7 @@ public class EventPager extends AbstractPager {
 
 	public EventPager() {
 		initWidget(scrollable);
+
 		scrollable.getElement().setTabIndex(-1);
 		setHideScrollBar(true);
 
